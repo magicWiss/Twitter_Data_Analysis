@@ -1,6 +1,7 @@
-
+draw_wordcloud(null);
+function draw_wordcloud(data, width, height) {
 // List of words
-var myWords = [
+var myWords = data || [
   { word: "Running", size: "10" },
   { word: "Surfing", size: "20" },
   { word: "Climbing", size: "50" },
@@ -10,17 +11,9 @@ var myWords = [
   // Aggiungi altre parole con le rispettive dimensioni qui
 ];
 
-// Genera 100 elementi di dati sintetici
-for (var i = 0; i < 1000; i++) {
-  var word = "Word" + i;
-  var size = Math.floor(Math.random() * 100) + 1; // Genera una dimensione casuale da 1 a 100
-  myWords.push({ word: word, size: size.toString() });
-}
-
-
 // Imposta le dimensioni del contenitore SVG sulla dimensione dello schermo disponibile
-var screenWidth = window.innerWidth;
-var screenHeight = window.innerHeight;
+var screenWidth = width || window.innerWidth;
+var screenHeight = height || window.innerHeight;
 
 // set the dimensions and margins of the graph
 var margin = { top: 10, right: 10, bottom: 10, left: 10 },
@@ -29,17 +22,17 @@ var margin = { top: 10, right: 10, bottom: 10, left: 10 },
 
 // append the svg object to the body of the page
 var svg = d3
-  .select("#my_dataviz")
+  .select("#wordcloud")
   .append("svg")
   .attr("width", screenWidth)
   .attr("height", screenHeight)
-  .call(
-    d3
-      .zoom()
-      .scaleExtent([1 / 2, 8])
-      .on("zoom", zoomed)
-  )
   .append("g");
+  
+  var zoom = d3.zoom()
+  .scaleExtent([1 / 2, 8])
+  .on("zoom", zoomed);
+
+svg.call(zoom);
 
 // Create a separate container for the word cloud
 var wordCloud = svg
@@ -66,6 +59,7 @@ var layout = d3.layout
   .on("end", draw);
 layout.start();
 
+
 // This function takes the output of 'layout' above and draw the words
 // Wordcloud features that are THE SAME from one word to the other can be here
 function draw(words) {
@@ -75,7 +69,7 @@ function draw(words) {
     .enter()
     .append("text")
     .style("font-size", function (d) {
-      return d.size;
+      return d.size+"px";
     })
     .attr("fill", "#69b3a2")
     .attr("text-anchor", "middle")
@@ -85,8 +79,8 @@ function draw(words) {
     })
     .on("click", function(d) {
       d3.selectAll("text").attr("class", null);
-      d3.select(this).attr("class", "active");
-      console.log(d.text); // Per il momento log poi dovremo salvare
+      d3.select(this).attr("class", "word-active");
+      console.log(d.target.textContent); // Per il momento log poi dovremo salvare
     })
     .on("mouseover", function() {
       d3.select(this).attr("fill", "#699FB3");
@@ -100,6 +94,7 @@ function draw(words) {
 }
 
 // Function to handle zooming and panning
-function zoomed() {
-  wordCloud.attr("transform", d3.event.transform);
+function zoomed(event) {
+  wordCloud.attr("transform", event.transform);
+}
 }
