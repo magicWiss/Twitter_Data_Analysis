@@ -77,11 +77,22 @@ function draw(words) {
     .style("font-size", function (d) {
       return d.size;
     })
-    .style("fill", "#69b3a2")
+    .attr("fill", "#69b3a2")
     .attr("text-anchor", "middle")
     .style("font-family", "Impact")
     .attr("transform", function (d) {
       return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+    })
+    .on("click", function(d) {
+      d3.selectAll("text").attr("class", null);
+      d3.select(this).attr("class", "active");
+      console.log(d.text); // Per il momento log poi dovremo salvare
+    })
+    .on("mouseover", function() {
+      d3.select(this).attr("fill", "#699FB3");
+    })
+    .on("mouseout", function() {
+      d3.select(this).attr("fill", "#69b3a2");
     })
     .text(function (d) {
       return d.text;
