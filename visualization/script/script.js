@@ -8,17 +8,35 @@ var user2date;
 var specificID = "4782551"
 
 function print_data_user_hashtag(data) {
-  console.log(data)
+  console.log(data);
   var container = d3.select('#users');
-  container.selectAll('p').remove();
+  container.selectAll('.box').remove();
   // Iterate over the JSON data and create elements
   for (i in data) {
-    // console.log(i)
     total = data[i]['total'] || data[i]
     id = i
-    container.append('p').text(id + " " + total);
+
+    // Create a div element for the box
+    var box = container.append('div')
+      .attr('class', 'box_user');
+
+    // Add the user image
+    box.append('img')
+      .attr('src', "./images/utente_twitter.png")
+      .attr('alt', 'User Image')
+      .style('width', '50px') // Set the desired width
+      .style('height', '50px'); // Set the desired height
+
+    // Add the username
+    box.append('p')
+      .text(id);
+
+    // Add the total number
+    box.append('p')
+      .text('Total: ' + total);
   }
 }
+
 
 function print_data_word_cloud(data) {
   var container = d3.select('#wordcloud');
@@ -68,6 +86,7 @@ Promise.all([
   print_data_user_hashtag(user2hashtag)
   data_wordcloud = get_data_wordcloud(wordCloud)
   draw_wordcloud(data_wordcloud, d3.select('#wordcloud').node().getBoundingClientRect().width, d3.select('#wordcloud').node().getBoundingClientRect().height);
+  draw_sentiment_line_chart(null, d3.select('#sentiment').node().getBoundingClientRect().width, d3.select('#sentiment').node().getBoundingClientRect().height);
 }).catch(function (err) {
   console.log(err);
 })
