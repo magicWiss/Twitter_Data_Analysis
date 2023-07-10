@@ -7,7 +7,22 @@ var user2date;
 // Load the CSV file
 var specificID = "4782551"
 
+//ordinamento alle brutte
+function sort_data(data){
+  const dataArray = Object.entries(data);
+
+  dataArray.sort((a, b) => b[1].total - a[1].total); // Sort in ascending order based on 'total'
+
+
+
+  data = dataArray.map(d => d[1]);
+  return data
+}
 function print_data_user_hashtag(data) {
+
+  //ordinamento
+  //data=sort_data(data);
+  
   console.log(data);
   var container = d3.select('#users');
   container.selectAll('.box').remove();
@@ -64,7 +79,7 @@ function get_data_wordcloud(data) {
 function filter_users() {
   console.log(wordCloud[selectedHashtag])
   console.log(wordCloud[selectedHashtag].users.slice(0, 20))
-//  print_data_user_hashtag();
+  print_data_user_hashtag();
 }
 
 function on_hashtag_selected(value) {
@@ -82,7 +97,9 @@ Promise.all([
   hash2date = files[2]
   user2hashtag = files[3]
   user2date = files[0]
+  filtered_user=false;
   // print_data_word_cloud(wordCloud)
+  
   print_data_user_hashtag(user2hashtag)
   data_wordcloud = get_data_wordcloud(wordCloud)
   draw_wordcloud(data_wordcloud, d3.select('#wordcloud').node().getBoundingClientRect().width, d3.select('#wordcloud').node().getBoundingClientRect().height);
