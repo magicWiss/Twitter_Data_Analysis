@@ -1,3 +1,16 @@
+//Tooltip
+var Tooltip = d3.select("body")
+  .append("div")
+  .style("opacity", 0)
+  .attr("class", "tooltip")
+  .style("background-color", "white")
+  .style("border", "solid")
+  .style("border-width", "2px")
+  .style("border-radius", "5px")
+  .style("padding", "5px")
+  .style("position","absolute");
+
+
 function draw_wordcloud(data, width, height) {
   // List of words
   var myWords = data || [
@@ -79,11 +92,15 @@ function draw_wordcloud(data, width, height) {
       .on("click", function (d) {
         d3.selectAll("text").attr("class", null);
         d3.select(this).attr("class", "word-active");
+        
+        
         on_hashtag_selected(d.target.textContent);
       })
-      .on("mouseover", function () {
-        d3.select(this).attr("fill", "#699FB3");
-      })
+      
+      .on("mouseover", function (d) {
+        d3.select(this).attr("fill", "#699FB3")})
+        
+      
       .on("mouseout", function () {
         d3.select(this).attr("fill", "#69b3a2");
       })
