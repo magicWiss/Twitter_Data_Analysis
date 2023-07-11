@@ -5,10 +5,11 @@
   <title>Twitter Analytics</title>
   <script src="https://d3js.org/d3.v6.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/d3.layout.cloud.js"></script>
-
+  <script src="https://unpkg.com/d3-horizon-chart"></script>
   <script src="script/script.js"></script>
   <script src="word_cloud/script.js"></script>
   <script src="sentiment/line_chart.js"></script>
+  <script src="sentiment/horizon_chart.js"></script>
   <link rel="stylesheet" type="text/css" href="style/style.css">
   <style>
   </style>
@@ -22,7 +23,11 @@
         <div id="users"></div>
     </div>
     <div class="sentiment">
-        <div id="sentiment"></div>
+        <div id="sentiment">
+            <div id="chart1"></div>
+            <div id="chart2"></div>
+            <div id="chart3"></div>
+        </div>
     </div>
 </body>
 </html>
