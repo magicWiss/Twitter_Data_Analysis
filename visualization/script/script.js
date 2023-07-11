@@ -4,6 +4,7 @@ var hash2date;
 var user2hashtag;
 var user2date;
 
+
 var IS_hashtagSelected;    //var booleana: true se è stato selezionato un hashtag nel wordcloud, false altrimenti
 // Load the CSV file
 var specificID = "4782551"
@@ -113,15 +114,25 @@ function filter_users(selectedHashtag,IS_hashtagSelected) {
   console.log("i dati relativi all'hashtag selezionato\n",wordCloud[selectedHashtag])
   data=wordCloud[selectedHashtag]
   
-
+  // draw_sentiment_line_chart(data, width, height)
   update_user_view(data,IS_hashtagSelected);
 }
 
+function filter_sentiment(selectedHashtag,IS_hashtagSelected){
+  var selectedData_sentiment = hash2date.filter(function(d) {
+    // Condizione per la selezione dei dati
+    return d.Hastag === selectedHashtag;
+  });
+
+  console.log("i dati relativi all'hashtag selezionato\n", selectedData_sentiment)
+  updateChart(selectedData_sentiment);
+}
+
 function on_hashtag_selected(value) {
-  console.log("Script1:UEEEEE")
   selectedHashtag = value;
   IS_hashtagSelected=true;
   filter_users(selectedHashtag,IS_hashtagSelected);
+  filter_sentiment(selectedHashtag,IS_hashtagSelected);
 }
 
 Promise.all([
@@ -137,11 +148,18 @@ Promise.all([
   user2date = files[0]
   IS_hashtagSelected=false;
   // print_data_word_cloud(wordCloud)
+
+    
+  var wordcloud_width = d3.select('#wordcloud').node().getBoundingClientRect().width;
+  var wordcloud_height = d3.select('#wordcloud').node().getBoundingClientRect().height;
+  var sentiment_width = d3.select('#sentiment').node().getBoundingClientRect().width;
+  var sentiment_height = d3.select('#sentiment').node().getBoundingClientRect().height;
   
-  print_data_user_hashtag(user2hashtag,IS_hashtagSelected)
-  data_wordcloud = get_data_wordcloud(wordCloud)
-  draw_wordcloud(data_wordcloud, d3.select('#wordcloud').node().getBoundingClientRect().width, d3.select('#wordcloud').node().getBoundingClientRect().height);
-  draw_sentiment_line_chart(null, d3.select('#sentiment').node().getBoundingClientRect().width, d3.select('#sentiment').node().getBoundingClientRect().height);
+  print_data_user_hashtag(user2hashtag,IS_hashtagSelected);
+  data_wordcloud = get_data_wordcloud(wordCloud);
+  draw_wordcloud(data_wordcloud, wordcloud_width, wordcloud_height);
+  draw_sentiment_line_chart(hash2date, sentiment_width, sentiment_height);
+  // draw_sentiment_horizon_graph(hash2date, sentiment_width, sentiment_height);
 }).catch(function (err) {
   console.log(err);
 })
