@@ -48,6 +48,8 @@ body {
     justify-content: space-around;
     margin: 10px 20px;
     border: 1px #242d34 solid;
+    -webkit-box-shadow: 6px 7px 15px -4px #000000; 
+    box-shadow: 6px 7px 15px -4px #000000;
 }
 
 .sentiment {
