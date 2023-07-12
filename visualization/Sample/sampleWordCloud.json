@@ -2,6 +2,8 @@
     "qatar2022": {
         "id": "qatar2022",
         "total": "172040",
+        "sentiment": "0.1503820706798949",
+        "color": "0.2",
         "users": [
             {
                 "id": 2203231058,
@@ -88,6 +90,8 @@
     "irnusa": {
         "id": "irnusa",
         "total": "62097",
+        "sentiment": "-0.6256237406527102",
+        "color": "-0.8",
         "users": [
             {
                 "id": 2203231058,
@@ -174,6 +178,8 @@
     "saytheirnames": {
         "id": "saytheirnames",
         "total": "60139",
+        "sentiment": "-0.6747505633253299",
+        "color": "-0.8",
         "users": [
             {
                 "id": 2203231058,
@@ -260,6 +266,8 @@
     "fifaworldcup": {
         "id": "fifaworldcup",
         "total": "36577",
+        "sentiment": "-0.14339975997012597",
+        "color": "-0.2",
         "users": [
             {
                 "id": 138372303,
@@ -346,6 +354,8 @@
     "mahsaamini": {
         "id": "mahsaamini",
         "total": "9372",
+        "sentiment": "-0.2557130293827977",
+        "color": "-0.5",
         "users": [
             {
                 "id": 22899683,
@@ -432,6 +442,8 @@
     "mehransamak": {
         "id": "mehransamak",
         "total": "7012",
+        "sentiment": "-0.7603232719448721",
+        "color": "-0.8",
         "users": [
             {
                 "id": 52444859,
@@ -518,6 +530,8 @@
     "worldcup": {
         "id": "worldcup",
         "total": "5602",
+        "sentiment": "-0.16545284254800185",
+        "color": "-0.2",
         "users": [
             {
                 "id": 219026000,
@@ -604,6 +618,8 @@
     "usavirn": {
         "id": "usavirn",
         "total": "4819",
+        "sentiment": "0.27262217985069037",
+        "color": "0.5",
         "users": [
             {
                 "id": 22899683,
@@ -690,6 +706,8 @@
     "iranrevoiution2022": {
         "id": "iranrevoiution2022",
         "total": "4520",
+        "sentiment": "0.45796160904888766",
+        "color": "0.5",
         "users": [
             {
                 "id": 22899683,
@@ -776,6 +794,8 @@
     "usa": {
         "id": "usa",
         "total": "4343",
+        "sentiment": "-0.33186608853439187",
+        "color": "-0.5",
         "users": [
             {
                 "id": 32760414,
@@ -862,6 +882,8 @@
     "worldcup2022": {
         "id": "worldcup2022",
         "total": "4097",
+        "sentiment": "-0.14476716864926015",
+        "color": "-0.2",
         "users": [
             {
                 "id": 1579998556026724352,
@@ -948,6 +970,8 @@
     "qatarworldcup2022": {
         "id": "qatarworldcup2022",
         "total": "3855",
+        "sentiment": "-0.14714671117853617",
+        "color": "-0.2",
         "users": [
             {
                 "id": 330262748,
@@ -1034,6 +1058,8 @@
     "iran": {
         "id": "iran",
         "total": "3507",
+        "sentiment": "-0.17882243605706064",
+        "color": "-0.2",
         "users": [
             {
                 "id": 1579998556026724352,
@@ -1120,6 +1146,8 @@
     "iranvsusa": {
         "id": "iranvsusa",
         "total": "3346",
+        "sentiment": "0.6248615169523484",
+        "color": "0.8",
         "users": [
             {
                 "id": 22899683,
@@ -1206,6 +1234,8 @@
     "eng": {
         "id": "eng",
         "total": "3195",
+        "sentiment": "-0.1917132720241203",
+        "color": "-0.2",
         "users": [
             {
                 "id": 69962890,
@@ -1292,6 +1322,8 @@
     "sen": {
         "id": "sen",
         "total": "3076",
+        "sentiment": "0.21098943660340502",
+        "color": "0.5",
         "users": [
             {
                 "id": 131967942,
@@ -1378,6 +1410,8 @@
     "fifaworldcupqatar2022": {
         "id": "fifaworldcupqatar2022",
         "total": "3031",
+        "sentiment": "0.20475683406516867",
+        "color": "0.5",
         "users": [
             {
                 "id": 1164718633605464066,
@@ -1464,6 +1498,8 @@
     "qatar": {
         "id": "qatar",
         "total": "2992",
+        "sentiment": "-0.2536022626101004",
+        "color": "-0.5",
         "users": [
             {
                 "id": 1108428545058054145,
@@ -1550,6 +1586,8 @@
     "usairn": {
         "id": "usairn",
         "total": "2629",
+        "sentiment": "-0.4164072983290734",
+        "color": "-0.5",
         "users": [
             {
                 "id": 52444859,
@@ -1636,6 +1674,8 @@
     "usmnt": {
         "id": "usmnt",
         "total": "2591",
+        "sentiment": "-0.3304309465394463",
+        "color": "-0.5",
         "users": [
             {
                 "id": 1236099905858363394,
@@ -1722,6 +1762,8 @@
     "fifaworldcup2022": {
         "id": "fifaworldcup2022",
         "total": "2480",
+        "sentiment": "-0.14680555488871716",
+        "color": "-0.2",
         "users": [
             {
                 "id": 1579998556026724352,
@@ -1808,6 +1850,8 @@
     "iranrevolution2022": {
         "id": "iranrevolution2022",
         "total": "2101",
+        "sentiment": "-0.19714446363476426",
+        "color": "-0.2",
         "users": [
             {
                 "id": 1579998556026724352,
@@ -1894,6 +1938,8 @@
     "pdvsaenvictoria": {
         "id": "pdvsaenvictoria",
         "total": "1892",
+        "sentiment": "-0.06958491042197465",
+        "color": "-0.2",
         "users": [
             {
                 "id": 118864905,
@@ -1980,6 +2026,8 @@
     "mahsa_amini": {
         "id": "mahsa_amini",
         "total": "1638",
+        "sentiment": "-0.18483066738256573",
+        "color": "-0.2",
         "users": [
             {
                 "id": 1579998556026724352,
@@ -2066,6 +2114,8 @@
     "iranrevolution": {
         "id": "iranrevolution",
         "total": "1624",
+        "sentiment": "-0.20453005655845508",
+        "color": "-0.5",
         "users": [
             {
                 "id": 1579998556026724352,
@@ -2152,6 +2202,8 @@
     "giveaway": {
         "id": "giveaway",
         "total": "1591",
+        "sentiment": "0.2625666219901718",
+        "color": "0.5",
         "users": [
             {
                 "id": 1516053903917297665,
@@ -2238,6 +2290,8 @@
     "irn": {
         "id": "irn",
         "total": "1566",
+        "sentiment": "-0.18857951704336953",
+        "color": "-0.2",
         "users": [
             {
                 "id": 69962890,
@@ -2324,6 +2378,8 @@
     "fifa\u30ef\u30fc\u30eb\u30c9\u30ab\u30c3\u30d7": {
         "id": "fifa\u30ef\u30fc\u30eb\u30c9\u30ab\u30c3\u30d7",
         "total": "1560",
+        "sentiment": "-0.22328292336526975",
+        "color": "-0.5",
         "users": [
             {
                 "id": 1549674520713510912,
@@ -2410,6 +2466,8 @@
     "teammelli": {
         "id": "teammelli",
         "total": "1535",
+        "sentiment": "-0.7054766532914181",
+        "color": "-0.8",
         "users": [
             {
                 "id": 11790882,
@@ -2496,6 +2554,8 @@
     "ned": {
         "id": "ned",
         "total": "1496",
+        "sentiment": "0.08234870515440194",
+        "color": "0.2",
         "users": [
             {
                 "id": 69962890,
@@ -2582,6 +2642,8 @@
     "nfts": {
         "id": "nfts",
         "total": "1462",
+        "sentiment": "0.34050086724793194",
+        "color": "0.5",
         "users": [
             {
                 "id": 1516053903917297665,
@@ -2668,6 +2730,8 @@
     "wal": {
         "id": "wal",
         "total": "1445",
+        "sentiment": "0.14049160253064397",
+        "color": "0.2",
         "users": [
             {
                 "id": 69962890,
@@ -2754,6 +2818,8 @@
     "ecuador": {
         "id": "ecuador",
         "total": "1306",
+        "sentiment": "0.17555423715736204",
+        "color": "0.2",
         "users": [
             {
                 "id": 14333756,
@@ -2840,6 +2906,8 @@
     "ultimahora": {
         "id": "ultimahora",
         "total": "1301",
+        "sentiment": "-0.25400909041169045",
+        "color": "-0.5",
         "users": [
             {
                 "id": 988612321143590920,
@@ -2926,6 +2994,8 @@
     "29nov": {
         "id": "29nov",
         "total": "1273",
+        "sentiment": "-0.06996210866356115",
+        "color": "-0.2",
         "users": [
             {
                 "id": 118864905,
@@ -3012,6 +3082,8 @@
     "senegal": {
         "id": "senegal",
         "total": "1253",
+        "sentiment": "0.14668136287787562",
+        "color": "0.2",
         "users": [
             {
                 "id": 8225692,
@@ -3098,6 +3170,8 @@
     "saytheir": {
         "id": "saytheir",
         "total": "1241",
+        "sentiment": "-0.1724837846393001",
+        "color": "-0.2",
         "users": [
             {
                 "id": 52444859,
@@ -3184,6 +3258,8 @@
     "china": {
         "id": "china",
         "total": "1237",
+        "sentiment": "-0.23442557574380532",
+        "color": "-0.5",
         "users": [
             {
                 "id": 988612321143590920,
@@ -3270,6 +3346,8 @@
     "iranusa": {
         "id": "iranusa",
         "total": "1224",
+        "sentiment": "-0.19424147105837014",
+        "color": "-0.2",
         "users": [
             {
                 "id": 1428075090,
@@ -3356,6 +3434,8 @@
     "ecu": {
         "id": "ecu",
         "total": "1211",
+        "sentiment": "-0.08587545037761087",
+        "color": "-0.2",
         "users": [
             {
                 "id": 69962890,
@@ -3442,6 +3522,8 @@
     "kianpirfalak": {
         "id": "kianpirfalak",
         "total": "1209",
+        "sentiment": "-0.5963347377934846",
+        "color": "-0.8",
         "users": [
             {
                 "id": 1438539246130827269,
@@ -3528,6 +3610,8 @@
     "latri": {
         "id": "latri",
         "total": "1169",
+        "sentiment": "0.13279570929399315",
+        "color": "0.2",
         "users": [
             {
                 "id": 68546829,
@@ -3614,6 +3698,8 @@
     "tehran": {
         "id": "tehran",
         "total": "1138",
+        "sentiment": "-0.16949753866633374",
+        "color": "-0.2",
         "users": [
             {
                 "id": 1579998556026724352,
@@ -3700,6 +3786,8 @@
     "opiran": {
         "id": "opiran",
         "total": "1128",
+        "sentiment": "-0.16646002116169537",
+        "color": "-0.2",
         "users": [
             {
                 "id": 1579998556026724352,
@@ -3786,6 +3874,8 @@
     "copamundialfifa": {
         "id": "copamundialfifa",
         "total": "1090",
+        "sentiment": "0.15411115618991836",
+        "color": "0.2",
         "users": [
             {
                 "id": 142296675,
@@ -3872,6 +3962,8 @@
     "ultimominuto": {
         "id": "ultimominuto",
         "total": "1080",
+        "sentiment": "-0.2439904087720038",
+        "color": "-0.5",
         "users": [
             {
                 "id": 988612321143590920,
@@ -3958,6 +4050,8 @@
     "r2pforiran": {
         "id": "r2pforiran",
         "total": "1071",
+        "sentiment": "-0.17571524593721743",
+        "color": "-0.2",
         "users": [
             {
                 "id": 1579998556026724352,
@@ -4044,6 +4138,8 @@
     "iranprotests2022": {
         "id": "iranprotests2022",
         "total": "1056",
+        "sentiment": "-0.18169338295631476",
+        "color": "-0.2",
         "users": [
             {
                 "id": 1579998556026724352,
@@ -4130,6 +4226,8 @@
     "argentina": {
         "id": "argentina",
         "total": "1050",
+        "sentiment": "0.1124497295826705",
+        "color": "0.2",
         "users": [
             {
                 "id": 715522981171183616,
@@ -4216,6 +4314,8 @@
     "iranprotests": {
         "id": "iranprotests",
         "total": "1047",
+        "sentiment": "-0.20453699122606234",
+        "color": "-0.5",
         "users": [
             {
                 "id": 1579998556026724352,
@@ -4302,6 +4402,8 @@
     "irgc": {
         "id": "irgc",
         "total": "1019",
+        "sentiment": "-0.17420830610703916",
+        "color": "-0.2",
         "users": [
             {
                 "id": 1579998556026724352,
@@ -4388,6 +4490,8 @@
     "wc2022": {
         "id": "wc2022",
         "total": "996",
+        "sentiment": "-0.16538042806916747",
+        "color": "-0.2",
         "users": [
             {
                 "id": 1579998556026724352,
@@ -4474,6 +4578,8 @@
     "womenlifefreedom": {
         "id": "womenlifefreedom",
         "total": "992",
+        "sentiment": "-0.16608494979547456",
+        "color": "-0.2",
         "users": [
             {
                 "id": 1579998556026724352,
@@ -4560,6 +4666,8 @@
     "freeiran": {
         "id": "freeiran",
         "total": "986",
+        "sentiment": "-0.16986927547959998",
+        "color": "-0.2",
         "users": [
             {
                 "id": 1579998556026724352,
@@ -4646,6 +4754,8 @@
     "freedom": {
         "id": "freedom",
         "total": "974",
+        "sentiment": "-0.1658343799337191",
+        "color": "-0.2",
         "users": [
             {
                 "id": 1579998556026724352,
@@ -4732,6 +4842,8 @@
     "qa": {
         "id": "qa",
         "total": "967",
+        "sentiment": "-0.20620434510224908",
+        "color": "-0.5",
         "users": [
             {
                 "id": 738860792469180417,
@@ -4818,6 +4930,8 @@
     "saharkhodayari": {
         "id": "saharkhodayari",
         "total": "963",
+        "sentiment": "-0.829003984165792",
+        "color": "-1.0",
         "users": [
             {
                 "id": 1438539246130827269,
@@ -4904,6 +5018,8 @@
     "waleng": {
         "id": "waleng",
         "total": "961",
+        "sentiment": "0.19223247650807065",
+        "color": "0.2",
         "users": [
             {
                 "id": 69962890,
@@ -4990,6 +5106,8 @@
     "fifa": {
         "id": "fifa",
         "total": "906",
+        "sentiment": "0.2856398208903763",
+        "color": "0.5",
         "users": [
             {
                 "id": 1394893575545139206,
@@ -5076,6 +5194,8 @@
     "qatar20": {
         "id": "qatar20",
         "total": "887",
+        "sentiment": "-0.31751785147393335",
+        "color": "-0.5",
         "users": [
             {
                 "id": 1108428545058054145,
@@ -5162,6 +5282,8 @@
     "football": {
         "id": "football",
         "total": "886",
+        "sentiment": "0.23488005520824087",
+        "color": "0.5",
         "users": [
             {
                 "id": 413042746,
@@ -5248,6 +5370,8 @@
     "espnqatarenstarplus": {
         "id": "espnqatarenstarplus",
         "total": "885",
+        "sentiment": "0.13048789655710666",
+        "color": "0.2",
         "users": [
             {
                 "id": 1485665582917865490,
@@ -5334,6 +5458,8 @@
     "qat": {
         "id": "qat",
         "total": "859",
+        "sentiment": "0.20218809016849604",
+        "color": "0.5",
         "users": [
             {
                 "id": 69962890,
@@ -5420,6 +5546,8 @@
     "amir_emad_mirmirani": {
         "id": "amir_emad_mirmirani",
         "total": "837",
+        "sentiment": "-0.3252073943472831",
+        "color": "-0.5",
         "users": [
             {
                 "id": 14808514,
@@ -5506,6 +5634,8 @@
     "worldcupqatar2022": {
         "id": "worldcupqatar2022",
         "total": "819",
+        "sentiment": "-0.13112343452742536",
+        "color": "-0.2",
         "users": [
             {
                 "id": 576241232,
@@ -5592,6 +5722,8 @@
     "ahora": {
         "id": "ahora",
         "total": "817",
+        "sentiment": "-0.23188631325547523",
+        "color": "-0.5",
         "users": [
             {
                 "id": 988612321143590920,
@@ -5678,6 +5810,8 @@
     "mankowutindamli": {
         "id": "mankowutindamli",
         "total": "798",
+        "sentiment": "0.11838391225587605",
+        "color": "0.2",
         "users": [
             {
                 "id": 1080810419990814720,
@@ -5764,6 +5898,8 @@
     "mex": {
         "id": "mex",
         "total": "795",
+        "sentiment": "0.10297165091679378",
+        "color": "0.2",
         "users": [
             {
                 "id": 53106875,
@@ -5850,6 +5986,8 @@
     "irausa": {
         "id": "irausa",
         "total": "726",
+        "sentiment": "-0.6495541570520775",
+        "color": "-0.8",
         "users": [
             {
                 "id": 1542093223450902529,
@@ -5936,6 +6074,8 @@
     "usvsiran": {
         "id": "usvsiran",
         "total": "712",
+        "sentiment": "0.6502351785608309",
+        "color": "0.8",
         "users": [
             {
                 "id": 219026000,
@@ -6022,6 +6162,8 @@
     "iranrevoiution": {
         "id": "iranrevoiution",
         "total": "695",
+        "sentiment": "-0.3318412849776171",
+        "color": "-0.5",
         "users": [
             {
                 "id": 1108428545058054145,
@@ -6108,6 +6250,8 @@
     "arg": {
         "id": "arg",
         "total": "644",
+        "sentiment": "0.11261084266337697",
+        "color": "0.2",
         "users": [
             {
                 "id": 1265865310420250624,
@@ -6194,6 +6338,8 @@
     "kurdistan": {
         "id": "kurdistan",
         "total": "624",
+        "sentiment": "-0.8337434654956096",
+        "color": "-1.0",
         "users": [
             {
                 "id": 2203231058,
@@ -6280,6 +6426,8 @@
     "eth": {
         "id": "eth",
         "total": "616",
+        "sentiment": "0.4794529349454203",
+        "color": "0.5",
         "users": [
             {
                 "id": 1394893575545139206,
@@ -6366,6 +6514,8 @@
     "contestalert": {
         "id": "contestalert",
         "total": "604",
+        "sentiment": "0.10344744779032214",
+        "color": "0.2",
         "users": [
             {
                 "id": 413042746,
@@ -6452,6 +6602,8 @@
     "inglaterra": {
         "id": "inglaterra",
         "total": "585",
+        "sentiment": "-0.1628686993814977",
+        "color": "-0.2",
         "users": [
             {
                 "id": 1501021069062426626,
@@ -6538,6 +6690,8 @@
     "contestalerindia": {
         "id": "contestalerindia",
         "total": "582",
+        "sentiment": "0.1026157692728255",
+        "color": "0.2",
         "users": [
             {
                 "id": 413042746,
@@ -6624,6 +6778,8 @@
     "vtv": {
         "id": "vtv",
         "total": "579",
+        "sentiment": "-0.0859008255429755",
+        "color": "-0.2",
         "users": [
             {
                 "id": 118864905,
@@ -6710,6 +6866,8 @@
     "unimoni": {
         "id": "unimoni",
         "total": "579",
+        "sentiment": "0.10257555389512267",
+        "color": "0.2",
         "users": [
             {
                 "id": 413042746,
@@ -6796,6 +6954,8 @@
     "contest": {
         "id": "contest",
         "total": "572",
+        "sentiment": "0.11011556295112986",
+        "color": "0.2",
         "users": [
             {
                 "id": 413042746,
@@ -6882,6 +7042,8 @@
     "chinaprotests": {
         "id": "chinaprotests",
         "total": "572",
+        "sentiment": "-0.3105577176048555",
+        "color": "-0.5",
         "users": [
             {
                 "id": 988612321143590920,
@@ -6968,6 +7130,8 @@
     "samanyasin": {
         "id": "samanyasin",
         "total": "567",
+        "sentiment": "-0.6497469484292954",
+        "color": "-0.8",
         "users": [
             {
                 "id": 961956510107566080,
@@ -7054,6 +7218,8 @@
     "ecdfmundialista": {
         "id": "ecdfmundialista",
         "total": "567",
+        "sentiment": "-0.45858247564332605",
+        "color": "-0.5",
         "users": [
             {
                 "id": 462920041,
@@ -7140,6 +7306,8 @@
     "pol": {
         "id": "pol",
         "total": "565",
+        "sentiment": "0.09099560882230483",
+        "color": "0.2",
         "users": [
             {
                 "id": 131967942,
@@ -7226,6 +7394,8 @@
     "mundialqatar2022": {
         "id": "mundialqatar2022",
         "total": "554",
+        "sentiment": "0.1344839751155783",
+        "color": "0.2",
         "users": [
             {
                 "id": 988612321143590920,
@@ -7312,6 +7482,8 @@
     "polonia": {
         "id": "polonia",
         "total": "540",
+        "sentiment": "-0.07109817010447157",
+        "color": "-0.2",
         "users": [
             {
                 "id": 715522981171183616,
@@ -7398,6 +7570,8 @@
     "coinexturns5": {
         "id": "coinexturns5",
         "total": "536",
+        "sentiment": "0.18532228282255164",
+        "color": "0.2",
         "users": [
             {
                 "id": 460537897,
@@ -7484,6 +7658,8 @@
     "coinexmoment": {
         "id": "coinexmoment",
         "total": "532",
+        "sentiment": "0.1853890636937518",
+        "color": "0.2",
         "users": [
             {
                 "id": 460537897,
@@ -7570,6 +7746,8 @@
     "fra": {
         "id": "fra",
         "total": "529",
+        "sentiment": "0.1624436703901654",
+        "color": "0.2",
         "users": [
             {
                 "id": 1134926792668733441,
@@ -7656,6 +7834,8 @@
     "carlosqueiroz": {
         "id": "carlosqueiroz",
         "total": "523",
+        "sentiment": "-0.7398000217510595",
+        "color": "-0.8",
         "users": [
             {
                 "id": 926031038371061760,
@@ -7742,6 +7922,8 @@
     "navidadessegurasyfelices2022": {
         "id": "navidadessegurasyfelices2022",
         "total": "518",
+        "sentiment": "0.0520033762934362",
+        "color": "0.2",
         "users": [
             {
                 "id": 1592338794044444672,
@@ -7828,6 +8010,8 @@
     "ksa": {
         "id": "ksa",
         "total": "501",
+        "sentiment": "-0.10297931373130094",
+        "color": "-0.2",
         "users": [
             {
                 "id": 268361752,
@@ -7914,6 +8098,8 @@
     "m\u00e9xico": {
         "id": "m\u00e9xico",
         "total": "493",
+        "sentiment": "0.13454314650028198",
+        "color": "0.2",
         "users": [
             {
                 "id": 1387165728974032910,
@@ -8000,6 +8186,8 @@
     "chinaprotest2022": {
         "id": "chinaprotest2022",
         "total": "488",
+        "sentiment": "-0.2811168336174887",
+        "color": "-0.5",
         "users": [
             {
                 "id": 988612321143590920,
@@ -8086,6 +8274,8 @@
     "polarg": {
         "id": "polarg",
         "total": "483",
+        "sentiment": "-0.09985580074576901",
+        "color": "-0.2",
         "users": [
             {
                 "id": 1127908385159110662,
@@ -8172,6 +8362,8 @@
     "england": {
         "id": "england",
         "total": "473",
+        "sentiment": "0.16589914117882118",
+        "color": "0.2",
         "users": [
             {
                 "id": 1211398414673383425,
@@ -8258,6 +8450,8 @@
     "asrapanahi": {
         "id": "asrapanahi",
         "total": "457",
+        "sentiment": "-0.8976332742670609",
+        "color": "-1.0",
         "users": [
             {
                 "id": 372113766,
@@ -8344,6 +8538,8 @@
     "ecusen": {
         "id": "ecusen",
         "total": "454",
+        "sentiment": "0.12505422900841423",
+        "color": "0.2",
         "users": [
             {
                 "id": 69962890,
@@ -8430,6 +8626,8 @@
     "blackstars": {
         "id": "blackstars",
         "total": "454",
+        "sentiment": "0.3892283980484525",
+        "color": "0.5",
         "users": [
             {
                 "id": 1444999898429075456,
@@ -8516,6 +8714,8 @@
     "samuraiblue": {
         "id": "samuraiblue",
         "total": "450",
+        "sentiment": "-0.2156131346605548",
+        "color": "-0.5",
         "users": [
             {
                 "id": 1530154136,

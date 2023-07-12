@@ -133,14 +133,14 @@ function update_user_view(data,IS_hashtagSelected)
 function get_data_wordcloud(data) {
 
   let word2fullsize = (Object.keys(data).map((i) => {
-    return { word: i, size: parseInt(data[i]['total']) };
+    return { word: i, size: parseInt(data[i]['total']),color:parseFloat(data[i]['color'])};
   }));
 
   let scaleSize = d3.scaleLinear()
     .domain([0, d3.max(word2fullsize, (d) => d.size)])
     .range([20, 60]);
 
-  return word2fullsize.map(i => { return { word: i.word, size: scaleSize(i.size) } })
+  return word2fullsize.map(i => { return { word: i.word, size: scaleSize(i.size), color:i.color } })
 }
 
 function filter_users(selectedHashtag, IS_hashtagSelected) {

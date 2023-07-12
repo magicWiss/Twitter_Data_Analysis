@@ -10,6 +10,15 @@ var Tooltip = d3.select("body")
   .style("padding", "5px")
   .style("position","absolute");
 
+//scaler per il colore
+var linearScale = d3.scaleLinear()
+  .domain([-0.9, 0, 0.9])
+  .range(['red', '#ddd', 'green']);
+
+
+
+
+
 
 function draw_wordcloud(data, width, height) {
   // List of words
@@ -58,7 +67,9 @@ function draw_wordcloud(data, width, height) {
     .size([width, height])
     .words(
       myWords.map(function (d) {
-        return { text: d.word, size: d.size };
+       
+        
+        return { text: d.word, size: d.size , color: d.color};
       })
     )
     .padding(5) // space between words
@@ -75,34 +86,51 @@ function draw_wordcloud(data, width, height) {
   // This function takes the output of 'layout' above and draw the words
   // Wordcloud features that are THE SAME from one word to the other can be here
   function draw(words) {
+    var current_color;
     wordCloud
       .selectAll("text")
       .data(words)
       .enter()
       .append("text")
       .style("font-size", function (d) {
+        
         return d.size + "px";
       })
-      .attr("fill", "#69b3a2")
+      .style("fill", function(d)
+      {
+        value=linearScale(parseFloat(d.color));
+        return value;
+      })
+
       .attr("text-anchor", "middle")
+      
       .style("font-family", "Impact")
       .attr("transform", function (d) {
         return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
       })
       .on("click", function (d) {
         d3.selectAll("text").attr("class", null);
-        d3.select(this).attr("class", "word-active");
+        
+        d3.select(this).attr("class", "word-active").attr("fill","#699FB3");
         
         
         on_hashtag_selected(d.target.textContent);
       })
       
       .on("mouseover", function (d) {
-        d3.select(this).attr("fill", "#699FB3")})
+        
+        current_color=d.srcElement["style"]["cssText"].split(";")[1].split(":")[1];
+        d3.select(this).style("fill", "#699FB3");
+        console.log("old",current_color)
+        console.log("new",d.srcElement["style"]["cssText"].split(";")[1].split(":")[1]);
+        
+      })
         
       
-      .on("mouseout", function () {
-        d3.select(this).attr("fill", "#69b3a2");
+      .on("mouseout", function (d) {
+        console.log("Exit",d.srcElement["style"]["cssText"].split(";")[1].split(":")[1]);
+        
+        d3.select(this).style("fill",current_color)
       })
       .text(function (d) {
         return d.text;
