@@ -59,10 +59,44 @@ body {
     height: calc(40% - 25px);
     /* border: 1px #1d9bf0 solid; */
 }
-#sentiment
-{
-    margin: 0;
 
+#sentiment_menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 60px;
+    height: 100%;
+    border: 1px #1d9bf0 solid;
+    background-color: #1d9bf0;
+}
+
+.chart{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    background: rgb(29,189,240);
+    background: linear-gradient(0deg, rgba(29,189,240,1) 0%, rgba(29,155,240,1) 100%);
+}
+
+.chart :hover{
+    background: #84e1ff;
+    -webkit-transition: background 0.5s; /* For Safari */
+    transition: background 0.5s; /* For modern browsers */
+}
+
+.chart img{
+    height: 40px;
+}
+
+#type_line{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#sentiment{
+    margin: 0;
     width: 100%;
     height: 100%;
     border: 1px #1d9bf0 solid;

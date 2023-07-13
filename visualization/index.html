@@ -23,6 +23,24 @@
         <div id="users"></div>
     </div>
     <div class="sentiment">
+        <div id="sentiment_menu">
+            <div class="charts">
+                <div class="line chart">
+                    <img src="images/chart-line-solid.svg" alt="chart">
+                </div>
+                <div class="horizon chart">
+                    <img src="images/chart-gantt-solid.svg" alt="chart">
+                </div>
+            </div>
+            <div id="type_line">
+                <input type="checkbox" id="positive" name="positive" checked>
+                <label for="positive">Positive</label>
+                <input type="checkbox" id="medium" name="medium" checked>
+                <label for="medium">Medium</label>
+                <input type="checkbox" id="negative" name="negative" checked>
+                <label for="negative">Negative</label>
+            </div>
+        </div>
         <div id="sentiment">
             <div id="chart1"></div>
             <div id="chart2"></div>
