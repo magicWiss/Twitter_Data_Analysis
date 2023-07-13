@@ -4,11 +4,6 @@ var hash2date;
 var user2hashtag;
 var user2date;
 
-var pos_line = true;
-var med_line = true;
-var neg_line = true;
-
-
 var IS_hashtagSelected;    //var booleana: true se è stato selezionato un hashtag nel wordcloud, false altrimenti
 // Load the CSV file
 var specificID = "4782551"
