@@ -121,14 +121,13 @@ function draw_wordcloud(data, width, height) {
         
         current_color=d.srcElement["style"]["cssText"].split(";")[1].split(":")[1];
         d3.select(this).style("fill", "#699FB3");
-        console.log("old",current_color)
-        console.log("new",d.srcElement["style"]["cssText"].split(";")[1].split(":")[1]);
+
         
       })
         
       
       .on("mouseout", function (d) {
-        console.log("Exit",d.srcElement["style"]["cssText"].split(";")[1].split(":")[1]);
+        
         
         d3.select(this).style("fill",current_color)
       })

@@ -45,6 +45,7 @@ function print_data_user_hashtag(data,IS_hashtagSelected) {
   for (i in data) {
     total = data[i]['total'] || data[i]
     id = i
+    console.log(data[i])
 
     // Create a div element for the box
     var box = container.append('div')
@@ -59,7 +60,7 @@ function print_data_user_hashtag(data,IS_hashtagSelected) {
 
     // Add the username
     box.append('p')
-      .text(id);
+      .text(data[i]['username']);
 
     // Add the total number
     box.append('p')
@@ -80,8 +81,9 @@ function update_user_view(data,IS_hashtagSelected)
     for (i in data['users']) {
       //total = data[i]['total'] || data[i]
       //id = i
+      console.log(data['users'])
       total=data['users'][i]['total']
-      id=data['users'][i]['id']
+      id=data['users'][i]['username']
   
       // Create a div element for the box
       var box = container.append('div')
@@ -107,8 +109,8 @@ function update_user_view(data,IS_hashtagSelected)
     console.log("Sono nel FALSE");
     for (i in data) {
       total = data[i]['total'] || data[i]
-      id = i
-  
+      id = data[i]['username']
+    
       // Create a div element for the box
       var box = container.append('div')
         .attr('class', 'box_user');
