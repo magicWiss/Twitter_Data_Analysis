@@ -29,7 +29,8 @@ function draw_sentiment_line_chart(data, width, height) {
     .select("#sentiment")
     .append("svg")
     .attr("width", current_width - margin.left - margin.right)
-    .attr("height", current_height);
+    .attr("height", current_height)
+    .attr("class", "svg_line_chart");
 
   // Create the chart group
   chart = svg
@@ -73,26 +74,26 @@ function draw_sentiment_line_chart(data, width, height) {
   line1Path = chart
     .append("path")
     .datum(currentData)
-    .attr("class", "line")
+    .attr("class", "line green")
     .attr("d", line1)
     .style("fill", "none")
-    .style("stroke", "steelblue");
+    .style("stroke", "green");
 
   line2Path = chart
     .append("path")
     .datum(currentData)
-    .attr("class", "line")
+    .attr("class", "line red")
     .attr("d", line2)
     .style("fill", "none")
-    .style("stroke", "green");
+    .style("stroke", "red");
 
   line3Path = chart
     .append("path")
     .datum(currentData)
-    .attr("class", "line")
+    .attr("class", "line orange")
     .attr("d", line3)
     .style("fill", "none")
-    .style("stroke", "red");
+    .style("stroke", "orange");
 
   // Add the x-axis
   xAxis = chart
@@ -106,9 +107,9 @@ function draw_sentiment_line_chart(data, width, height) {
 
   // Add the legend
   const legendData = [
-    { label: "Positive", color: "steelblue" },
-    { label: "Negative", color: "green" },
-    { label: "Medium", color: "red" },
+    { label: "Positive", color: "green" },
+    { label: "Medium", color: "orange" },
+    { label: "Negative", color: "red" },
   ];
 
   const legendWidth = 150;
