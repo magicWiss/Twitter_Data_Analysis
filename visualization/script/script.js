@@ -162,14 +162,14 @@ function filter_users_by_hashtag() {
 }
 
 
-function filter_users_by_hashtag() {
-  if (selectedHashtag !== undefined){
-    selectedData_wordCloud=wordCloud[selectedHashtag]
-    update_user_view(selectedData_wordCloud);
+function filter_hashtag_by_user() {
+  if (selectedUser !== undefined){
+    selectedData_wordCloud = wordCloud[selectedHashtag];
+    // update_wordcloud(selectedData_wordCloud);
   }
   else{
     selectedData_wordCloud=user2hashtag
-    update_user_view(selectedData_wordCloud)
+    // update_wordcloud(selectedData_wordCloud)
   }  
 }
 
@@ -206,7 +206,7 @@ function on_user_selected(value) {
   }
   else  selectedUser = value;
 
-  // filter_hashtag_by_user();
+  filter_hashtag_by_user();
   filter_sentiment();
 }
 
