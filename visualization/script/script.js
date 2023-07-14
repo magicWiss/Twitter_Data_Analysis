@@ -1,10 +1,10 @@
-var selectedHashtag;
+var selectedHashtag = undefined;
+var selectedUser = undefined;
 var wordCloud;
 var hash2date;
 var user2hashtag;
 var user2date;
 
-var IS_hashtagSelected;    //var booleana: true se è stato selezionato un hashtag nel wordcloud, false altrimenti
 // Load the CSV file
 var specificID = "4782551"
 
@@ -31,7 +31,7 @@ function sort_data(data){
   return data
 }
 
-function print_data_user_hashtag(data,IS_hashtagSelected) {
+function print_data_user_hashtag(data) {
 
   //ordinamento
   //data=sort_data(data);
@@ -76,78 +76,67 @@ function print_data_user_hashtag(data,IS_hashtagSelected) {
 
 
 
-function update_user_view(data,IS_hashtagSelected)
+function update_user_view(data, found = false)
 {
   var container = d3.select('#users');
   container.selectAll('*').remove();
-  if (IS_hashtagSelected == true){
-    console.log("Sono nel TRUE");
-    // Iterate over the JSON data and create elements
-    for (i in data['users']) {
-      //total = data[i]['total'] || data[i]
-      //id = i
-      console.log(data['users'])
-      total=data['users'][i]['total']
-      id=data['users'][i]['username']
-  
-      // Create a div element for the box
-      var box = container.append('div')
-        .attr('class', 'box_user');
-  
-      // Add the user image
-      box.append('img')
-        .attr('src', "./images/utente_twitter.png")
-        .attr('alt', 'User Image')
-        .style('width', '50px') // Set the desired width
-        .style('height', '50px'); // Set the desired height
-  
-      let url = 'https://twitter.com/intent/user?user_id=' + id;
-      if(isNaN(id))
-        url = 'https://twitter.com/'+id;
-      // Add the username
-      box.append('a')
-        .attr('href', url)
-        .attr('target', '_blank')
-        .append('p')
-        .text(id);
-  
-      // Add the total number
-      box.append('p')
-        .text('Total: ' + total);
-    }
+
+  if (selectedHashtag === undefined){
+    set_container_data_user(container, data, found);
   }
   else{
-    console.log("Sono nel FALSE");
-    for (i in data) {
-      total = data[i]['total'] || data[i]
-      id = data[i]['username']
-    
-      // Create a div element for the box
-      var box = container.append('div')
-        .attr('class', 'box_user');
-  
-      // Add the user image
-      box.append('img')
-        .attr('src', "./images/utente_twitter.png")
-        .attr('alt', 'User Image')
-        .style('width', '50px') // Set the desired width
-        .style('height', '50px'); // Set the desired height
-      let url = 'https://twitter.com/intent/user?user_id=' + id;
-      if(isNaN(id))
-        url = 'https://twitter.com/'+id;
-      // Add the username
-      box.append('a')
-        .attr('href', url)
-        .attr('target', '_blank')
-        .append('p')
-        .text(id);
-  
-      // Add the total number
-      box.append('p')
-        .text('Total: ' + total);
-    }
+    set_container_data_user(container, data["users"], found);
   }
 }
+
+function set_container_data_user(container, data, found = false) {
+  for (i in data) {
+    total = data[i]['total'] || data[i]
+    id = data[i]['id']
+    username = data[i]['username']
+  
+    // Create a div element for the box
+    var box = container.append('div')
+      .attr('class', 'box_user')
+      .attr('id', id)
+      .on('click', function (d) {
+        d3.selectAll(".box_user").attr('class', 'box_user');
+        d3.select(this).attr("class", "box_user active");
+        on_user_selected(d3.select(this).attr("id"));
+      })
+    ;
+  
+    if(parseInt(id) === parseInt(selectedUser)) {
+      found = true;
+      box.attr('class', 'box_user active')
+    }
+
+    // Add the user image
+    box.append('img')
+      .attr('src', "./images/utente_twitter.png")
+      .attr('alt', 'User Image')
+      .style('width', '50px') // Set the desired width
+      .style('height', '50px'); // Set the desired height
+    
+    let url = 'https://twitter.com/intent/user?user_id=' + id;
+    if(isNaN(username))
+      url = 'https://twitter.com/'+username;
+
+    // Add the username
+    box.append('a')
+      .attr('href', url)
+      .attr('target', '_blank')
+      .append('p')
+      .text(username);
+
+    // Add the total number
+    box.append('p')
+      .text('Total: ' + total);
+  }
+  if(!found)  on_user_selected(undefined);
+}
+
+
 function get_data_wordcloud(data) {
 
   let word2fullsize = (Object.keys(data).map((i) => {
@@ -161,49 +150,70 @@ function get_data_wordcloud(data) {
   return word2fullsize.map(i => { return { word: i.word, num: i.size, fontsize: scaleSize(i.size), color:i.color } })
 }
 
-function filter_users(selectedHashtag, IS_hashtagSelected) {
-  if (IS_hashtagSelected == true){
-    // console.log("gli utenti relativi all'hashtag selezionato\n",wordCloud[selectedHashtag])
-    selectedData_wordCloud=wordCloud[selectedHashtag]
-    // draw_sentiment_line_chart(data, width, height)
-    update_user_view(selectedData_wordCloud, IS_hashtagSelected);
+function filter_users_by_hashtag() {
+  if (selectedHashtag !== undefined){
+    selectedData_wordCloud=wordCloud[selectedHashtag];
+    update_user_view(selectedData_wordCloud);
   }
   else{
-    // console.log("gli utenti relativi all'hashtag selezionato\n",wordCloud)
     selectedData_wordCloud=user2hashtag
-    update_user_view(selectedData_wordCloud,IS_hashtagSelected)
-  }
-  
-  
+    update_user_view(selectedData_wordCloud)
+  }  
 }
 
-function filter_sentiment(selectedHashtag, IS_hashtagSelected){
-  if (IS_hashtagSelected == true){
-    var selectedData_sentiment = hash2date.filter(function(d) {
-      // Condizione per la selezione dei dati
-      return d.Hastag === selectedHashtag;
-    });
+
+function filter_users_by_hashtag() {
+  if (selectedHashtag !== undefined){
+    selectedData_wordCloud=wordCloud[selectedHashtag]
+    update_user_view(selectedData_wordCloud);
   }
   else{
-    selectedData_sentiment = hash2date
-  }
+    selectedData_wordCloud=user2hashtag
+    update_user_view(selectedData_wordCloud)
+  }  
+}
 
-  // console.log("il sentiment relativi all'hashtag selezionato\n", selectedData_sentiment)
-  updateChart(selectedData_sentiment);
+function filter_sentiment() {
+  if (selectedHashtag !== undefined){
+    if(selectedUser === undefined)
+      updateChart(hash2date.filter(function(d) { return d.Hastag === selectedHashtag}));
+    else
+      // mancano i dati
+      return
+  }
+  else if(selectedUser !== undefined) {
+    updateChart(user2date.filter(function(d) { return d.author_id === selectedUser}));
+  }
+  else {
+    updateChart(hash2date);
+  }
 }
 
 function on_hashtag_selected(value) {
   if (value == selectedHashtag){
     selectedHashtag = undefined;
-    IS_hashtagSelected=false;
     d3.select('.word-active').classed("word-active", false);
   }
-  else{
-    selectedHashtag = value;
-    IS_hashtagSelected=true;
+  else  selectedHashtag = value;
+  filter_users_by_hashtag();
+  filter_sentiment();
+}
+
+function on_user_selected(value) {
+  if (value == selectedUser){
+    selectedUser = undefined;
+    d3.selectAll(".box_user").attr('class', 'box_user');
   }
-  filter_users(selectedHashtag,IS_hashtagSelected);
-  filter_sentiment(selectedHashtag,IS_hashtagSelected);
+  else  selectedUser = value;
+
+  // filter_hashtag_by_user();
+  filter_sentiment();
+}
+
+function check_hashtag_selected_in_user() {
+  if(selectedData_wordCloud[selectedUser].includes(selectedHashtag)) {
+
+  }
 }
 
 
@@ -224,7 +234,6 @@ Promise.all([
   hash2date = files[2]
   user2hashtag = files[3]
   user2date = files[0]
-  IS_hashtagSelected=false;
   // print_data_word_cloud(wordCloud)
 
     
@@ -234,7 +243,7 @@ Promise.all([
   var sentiment_height = d3.select('#sentiment').node().getBoundingClientRect().height;
   
   // Vengono disegnati tutti i grafici all'inizio
-  update_user_view(user2hashtag,IS_hashtagSelected);
+  update_user_view(user2hashtag, true);
   data_wordcloud = get_data_wordcloud(wordCloud);
   draw_wordcloud(data_wordcloud, wordcloud_width, wordcloud_height);
   draw_sentiment_line_chart(hash2date, sentiment_width, sentiment_height);

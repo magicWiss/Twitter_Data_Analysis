@@ -64,6 +64,11 @@ body {
     background-color: #1e3d58;
 }
 
+
+.active{
+    background-color: #1e3d58 !important;
+}
+
 .sentiment {
     display: flex;
     flex-direction: row;

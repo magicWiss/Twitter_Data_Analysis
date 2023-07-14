@@ -44,11 +44,11 @@ function draw_wordcloud(data, width, height) {
     .attr("height", screenHeight)
     .append("g");
 
-  var zoom = d3.zoom()
-    .scaleExtent([1 / 2, 8])
-    .on("zoom", zoomed);
+  // var zoom = d3.zoom()
+  //   .scaleExtent([1 / 2, 8])
+  //   .on("zoom", zoomed);
 
-  svg.call(zoom);
+  // svg.call(zoom);
 
   // Create a separate container for the word cloud
   var wordCloud = svg
@@ -114,7 +114,7 @@ function draw_wordcloud(data, width, height) {
               .style("top", yPos + "px")
               .text("#tweets: " + d.target.__data__.num);        
       })
-      .on("mouseout", function (d) {
+      .on("mouseout", function () {
         tipBox.style("left", "-9999px")
               .style("top", "-9999px");
         d3.select(this).style("fill", current_color)
