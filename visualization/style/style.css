@@ -60,6 +60,10 @@ body {
     box-shadow: 6px 7px 15px -4px #000000;
 }
 
+.box_user:hover{
+    background-color: #1e3d58;
+}
+
 .sentiment {
     display: flex;
     flex-direction: row;
@@ -77,6 +81,12 @@ body {
     color: white;
     /* border: 1px #116A7B solid; */
     background-color: #476f95;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
 }
 
 .chart{

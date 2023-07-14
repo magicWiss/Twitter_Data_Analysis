@@ -56,9 +56,15 @@ function print_data_user_hashtag(data,IS_hashtagSelected) {
       .attr('alt', 'User Image')
       .style('width', '50px') // Set the desired width
       .style('height', '50px'); // Set the desired height
-
+      
+    let url = 'https://twitter.com/intent/user?user_id=' + id;
+    if(isNaN(id))
+      url = 'https://twitter.com/'+id;
     // Add the username
-    box.append('p')
+    box.append('a')
+      .attr('href', url)
+      .attr('target', '_blank')
+      .append('p')
       .text(data[i]['username']);
 
     // Add the total number
@@ -95,8 +101,14 @@ function update_user_view(data,IS_hashtagSelected)
         .style('width', '50px') // Set the desired width
         .style('height', '50px'); // Set the desired height
   
+      let url = 'https://twitter.com/intent/user?user_id=' + id;
+      if(isNaN(id))
+        url = 'https://twitter.com/'+id;
       // Add the username
-      box.append('p')
+      box.append('a')
+        .attr('href', url)
+        .attr('target', '_blank')
+        .append('p')
         .text(id);
   
       // Add the total number
@@ -120,9 +132,14 @@ function update_user_view(data,IS_hashtagSelected)
         .attr('alt', 'User Image')
         .style('width', '50px') // Set the desired width
         .style('height', '50px'); // Set the desired height
-  
+      let url = 'https://twitter.com/intent/user?user_id=' + id;
+      if(isNaN(id))
+        url = 'https://twitter.com/'+id;
       // Add the username
-      box.append('p')
+      box.append('a')
+        .attr('href', url)
+        .attr('target', '_blank')
+        .append('p')
         .text(id);
   
       // Add the total number
