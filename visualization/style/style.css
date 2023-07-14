@@ -1,9 +1,12 @@
 .header {
     text-align: center;
-    height: 30px;
-    background-color: #1d9bf0;
-    border: 1px #1d9bf0 solid;
-    font-size: 20px;
+    display: flex;
+    justify-content: center; /* Align horizontal */
+    align-items: center; /* Align vertical */
+    height: 7%;
+    background-color: #1e3d58;
+    /* border: 1px #116A7B solid; */
+    font-size: 30px;
     color: white;
 }
 
@@ -16,20 +19,22 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
+    font-family: Arial;
 }
   
 .upper {
     display: flex;
     flex-direction: row;
     width: inherit;
-    height: calc(60% - 15px);
-    border: 1px #1d9bf0 solid;
+    height: 50%;
+    border-bottom: 3px #1e3d58 solid;
 }
 #wordcloud {
     margin-left: 0;
     width: 60%;
     height: 100%;
-    border: 1px #1d9bf0 solid;
+    background-color: #d1dbe4;
+    border-right: 3px #116A7B solid;
     overflow:hidden;
 }
 #users
@@ -38,7 +43,8 @@ body {
     margin-bottom: 110px;
     width: 40%;
     height: 100%;
-    border: 1px #1d9bf0 solid;
+    /* border: 1px #1d9bf0 solid; */
+    background-color: #d1dbe4;
     overflow: auto;
 }
 
@@ -48,6 +54,8 @@ body {
     justify-content: space-around;
     margin: 10px 20px;
     border: 1px #242d34 solid;
+    background-color: #7593af;
+    color: white;
     -webkit-box-shadow: 6px 7px 15px -4px #000000; 
     box-shadow: 6px 7px 15px -4px #000000;
 }
@@ -56,7 +64,7 @@ body {
     display: flex;
     flex-direction: row;
     width: 100%;
-    height: calc(40% - 25px);
+    height: 42%;
     /* border: 1px #1d9bf0 solid; */
 }
 
@@ -66,8 +74,9 @@ body {
     justify-content: space-between;
     width: 60px;
     height: 100%;
-    border: 1px #1d9bf0 solid;
-    background-color: #1d9bf0;
+    color: white;
+    /* border: 1px #116A7B solid; */
+    background-color: #476f95;
 }
 
 .chart{
@@ -75,8 +84,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 50px;
-    background: rgb(29,189,240);
-    background: linear-gradient(0deg, rgba(29,189,240,1) 0%, rgba(29,155,240,1) 100%);
+    background: #476f95;
 }
 
 .chart :hover{
@@ -99,9 +107,21 @@ body {
     margin: 0;
     width: 100%;
     height: 100%;
-    border: 1px #1d9bf0 solid;
+    background-color: #d1dbe4;
+    /* border: 1px #1d9bf0 solid; */
 }
 .word-active {
     fill: #b3697a;
     text-decoration: underline;
+}
+
+.tip-box {
+    position: absolute;
+    background-color: #FFE0AC;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    left: -9999px;
+    top: -9999px;
 }

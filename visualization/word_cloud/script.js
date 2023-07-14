@@ -15,11 +15,6 @@ var linearScale = d3.scaleLinear()
   .domain([-0.9, 0, 0.9])
   .range(['red', '#ddd', 'green']);
 
-
-
-
-
-
 function draw_wordcloud(data, width, height) {
   // List of words
   var myWords = data || [
@@ -67,9 +62,7 @@ function draw_wordcloud(data, width, height) {
     .size([width, height])
     .words(
       myWords.map(function (d) {
-       
-        
-        return { text: d.word, size: d.size , color: d.color};
+        return { text: d.word, num: d.num, fontsize: d.fontsize , color: d.color};
       })
     )
     .padding(5) // space between words
@@ -77,59 +70,54 @@ function draw_wordcloud(data, width, height) {
       return ~~(Math.random() * 2) * 90;
     })
     .fontSize(function (d) {
-      return d.size;
+      return d.fontsize;
     }) // font size of words
     .on("end", draw);
   layout.start();
-
 
   // This function takes the output of 'layout' above and draw the words
   // Wordcloud features that are THE SAME from one word to the other can be here
   function draw(words) {
     var current_color;
+    var tipBox = d3.select("body")
+            .append("div")
+            .attr("class", "tip-box");
     wordCloud
       .selectAll("text")
       .data(words)
       .enter()
       .append("text")
       .style("font-size", function (d) {
-        
-        return d.size + "px";
+        return d.fontsize + "px";
       })
       .style("fill", function(d)
       {
-        value=linearScale(parseFloat(d.color));
+        value = linearScale(parseFloat(d.color));
         return value;
       })
-
-      .attr("text-anchor", "middle")
-      
+      .attr("text-anchor", "middle")    
       .style("font-family", "Impact")
       .attr("transform", function (d) {
         return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
       })
       .on("click", function (d) {
         d3.selectAll("text").attr("class", null);
-        
         d3.select(this).attr("class", "word-active").attr("fill","#699FB3");
-        
-        
         on_hashtag_selected(d.target.textContent);
       })
-      
       .on("mouseover", function (d) {
-        
-        current_color=d.srcElement["style"]["cssText"].split(";")[1].split(":")[1];
+        current_color = d.srcElement["style"]["cssText"].split(";")[1].split(":")[1];
         d3.select(this).style("fill", "#699FB3");
-
-        
+        var xPos = d.pageX + 10; // Offset to avoid mouse overlap
+        var yPos = d.pageY + 10; // Offset to avoid mouse overlap
+        tipBox.style("left", xPos + "px")
+              .style("top", yPos + "px")
+              .text("#tweets: " + d.target.__data__.num);        
       })
-        
-      
       .on("mouseout", function (d) {
-        
-        
-        d3.select(this).style("fill",current_color)
+        tipBox.style("left", "-9999px")
+              .style("top", "-9999px");
+        d3.select(this).style("fill", current_color)
       })
       .text(function (d) {
         return d.text;

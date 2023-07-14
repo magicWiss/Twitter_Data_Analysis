@@ -134,25 +134,25 @@ function update_user_view(data,IS_hashtagSelected)
 function get_data_wordcloud(data) {
 
   let word2fullsize = (Object.keys(data).map((i) => {
-    return { word: i, size: parseInt(data[i]['total']),color:parseFloat(data[i]['color'])};
+    return { word: i, size: parseInt(data[i]['total']), color:parseFloat(data[i]['color'])};
   }));
 
   let scaleSize = d3.scaleLinear()
     .domain([0, d3.max(word2fullsize, (d) => d.size)])
     .range([20, 60]);
 
-  return word2fullsize.map(i => { return { word: i.word, size: scaleSize(i.size), color:i.color } })
+  return word2fullsize.map(i => { return { word: i.word, num: i.size, fontsize: scaleSize(i.size), color:i.color } })
 }
 
 function filter_users(selectedHashtag, IS_hashtagSelected) {
   if (IS_hashtagSelected == true){
-    console.log("gli utenti relativi all'hashtag selezionato\n",wordCloud[selectedHashtag])
+    // console.log("gli utenti relativi all'hashtag selezionato\n",wordCloud[selectedHashtag])
     selectedData_wordCloud=wordCloud[selectedHashtag]
     // draw_sentiment_line_chart(data, width, height)
     update_user_view(selectedData_wordCloud, IS_hashtagSelected);
   }
   else{
-    console.log("gli utenti relativi all'hashtag selezionato\n",wordCloud)
+    // console.log("gli utenti relativi all'hashtag selezionato\n",wordCloud)
     selectedData_wordCloud=user2hashtag
     update_user_view(selectedData_wordCloud,IS_hashtagSelected)
   }
@@ -171,7 +171,7 @@ function filter_sentiment(selectedHashtag, IS_hashtagSelected){
     selectedData_sentiment = hash2date
   }
 
-  console.log("il sentiment relativi all'hashtag selezionato\n", selectedData_sentiment)
+  // console.log("il sentiment relativi all'hashtag selezionato\n", selectedData_sentiment)
   updateChart(selectedData_sentiment);
 }
 
@@ -251,7 +251,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Gestore eventi per elementi all'interno del menu
   lineChart.on("click", function() {
-    console.log("Hai cliccato su line chart");
+    // console.log("Hai cliccato su line chart");
     var svg_line_chart = d3.select(".svg_line_chart");
     var svg_horizon_chart = d3.selectAll(".svg_horizon_chart");
     svg_horizon_chart.style("display", "none");
@@ -260,7 +260,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   horizonChart.on("click", function() {
-    console.log("Hai cliccato su horizon chart");
+    // console.log("Hai cliccato su horizon chart");
     var svg_line_chart = d3.select(".svg_line_chart");
     var svg_horizon_chart = d3.selectAll(".svg_horizon_chart");
     svg_horizon_chart.style("display", "block");
