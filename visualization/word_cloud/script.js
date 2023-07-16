@@ -109,6 +109,9 @@ function draw_wordcloud(data, width, height) {
       .on("click", function (d) {
         d3.selectAll("text").attr("class", null);
         d3.select(this).attr("class", "word-active").attr("fill","#699FB3");
+        tipBox.style("left", "-9999px")
+              .style("top", "-9999px");
+        d3.select(this).style("fill", current_color);
         on_hashtag_selected(d.target.textContent);
       })
       .on("mouseover", function (d) {
@@ -128,8 +131,6 @@ function draw_wordcloud(data, width, height) {
       .text(function (d) {
         return d.text;
       });
-
-      console.log(selectedHashtag)
       if(selectedHashtag !== undefined) {
         selected = d3.selectAll("text").filter(function () {
           return d3.select(this).attr("id") == selectedHashtag; // filter by single attribute

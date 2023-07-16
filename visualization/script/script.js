@@ -84,12 +84,6 @@ function print_data_user_hashtag(data) {
 
 function update_user_view(data, found = false)
 {
-  if(data === ORIGINAL_user2hashtag) {
-    isAllWordCloudDataset = true;
-  } else {
-    isAllWordCloudDataset = false;
-  }
-
   var container = d3.select('#users');
   container.selectAll('*').remove();
 
@@ -204,8 +198,25 @@ function filter_sentiment() {
     if(selectedUser === undefined)
       updateChart(hash2date.filter(function(d) { return d.Hastag === selectedHashtag}));
     else
+      userSentiment = user2date.filter(function(d) { return d.author_id === selectedUser});
+      hashSentiment = hash2date.filter(function(d) { return d.Hastag === selectedHashtag});
+      let datesToFilter = Array();
+      let result = userSentiment.map(function(d) {
+        datesToFilter.push(d.timestamp);
+        let hashSame = hashSentiment.filter(function(h) { return h.timestamp === d.timestamp} );
+        if(hashSame.length > 0) {
+          let hash = hashSame[0];
+          return {timestamp: d.timestamp, positive: (parseFloat(d.positive) + parseFloat(hash.positive))/2, negative: (parseFloat(d.negative) + parseFloat(hash.negative))/2, medium: (parseFloat(d.medium) + parseFloat(hash.medium))/2,};
+        }
+        return {timestamp: d.timestamp, positive: parseFloat(d.positive), negative: parseFloat(d.negative), medium: parseFloat(d.medium)};
+      });
+
+      result = result.concat(hashSentiment.filter(function(d) { return !datesToFilter.includes(d.timestamp)}));
+      result = result.sort((a, b) => {
+        return new Date(a.timestamp) - new Date(b.timestamp);
+      });
       // mancano i dati
-      return
+      updateChart(result);
   }
   else if(selectedUser !== undefined) {
     updateChart(user2date.filter(function(d) { return d.author_id === selectedUser}));
@@ -223,7 +234,8 @@ function on_hashtag_selected(value) {
     if (selectedUser===undefined)
     {
       update_user_view(ORIGINAL_user2hashtag);
-      if(!isAllWordCloudDataset) {      
+      if(!isAllWordCloudDataset) {
+        isAllWordCloudDataset = true;    
         original_wordcloud=get_data_wordcloud(ORIGINAL_wordCloud);
         draw_wordcloud(original_wordcloud,wordcloud_width,wordcloud_height);
       }
@@ -243,8 +255,9 @@ function on_hashtag_selected(value) {
       selectedHashtag = value;
       filter_users_by_hashtag();
     }
-    filter_sentiment();
   }
+
+  filter_sentiment();
 }
 
 function on_user_selected(value) {
@@ -272,17 +285,8 @@ function on_user_selected(value) {
     }
   }
   
-
   filter_sentiment();
 }
-
-function check_hashtag_selected_in_user() {
-  if(selectedData_wordCloud[selectedUser].includes(selectedHashtag)) {
-
-  }
-}
-
-
 
 
 // ------------------------------------------------------------------
