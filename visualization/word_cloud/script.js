@@ -37,6 +37,11 @@ function draw_wordcloud(data, width, height) {
     height = screenHeight - margin.top - margin.bottom;
 
   // append the svg object to the body of the page
+
+  var wordcloud_svg=d3.select("#wordcloud")
+  wordcloud_svg.selectAll("svg").remove()
+
+
   var svg = d3
     .select("#wordcloud")
     .append("svg")
@@ -51,7 +56,7 @@ function draw_wordcloud(data, width, height) {
   // svg.call(zoom);
 
   // Create a separate container for the word cloud
-  var wordCloud = svg
+   wordCloud = svg
     .append("g")
     .attr("transform", "translate(" + screenWidth / 2 + "," + screenHeight / 2 + ")");
 
@@ -62,6 +67,7 @@ function draw_wordcloud(data, width, height) {
     .size([width, height])
     .words(
       myWords.map(function (d) {
+        
         return { text: d.word, num: d.num, fontsize: d.fontsize , color: d.color};
       })
     )
@@ -88,6 +94,8 @@ function draw_wordcloud(data, width, height) {
       .enter()
       .append("text")
       .style("font-size", function (d) {
+        //console.log("FUNZIONE DRAW")
+        //console.log(d)
         return d.fontsize + "px";
       })
       .style("fill", function(d)
@@ -120,6 +128,7 @@ function draw_wordcloud(data, width, height) {
         d3.select(this).style("fill", current_color)
       })
       .text(function (d) {
+        
         return d.text;
       });
   }
