@@ -9,9 +9,7 @@ var wordcloud_width;
 var wordcloud_height;
 var sentiment_height;
 var sentiment_width;
-
-var active_user;
-var active_hashtag;
+var isAllWordCloudDataset = true;
 
 // Load the CSV file
 var specificID = "4782551"
@@ -84,27 +82,26 @@ function print_data_user_hashtag(data) {
 
 
 
-function update_user_view(data, found = false,active_user)
+function update_user_view(data, found = false)
 {
-  console.log("update_user_view")
-  console.log("current data:",data)
+  if(data === ORIGINAL_user2hashtag) {
+    isAllWordCloudDataset = true;
+  } else {
+    isAllWordCloudDataset = false;
+  }
+
   var container = d3.select('#users');
   container.selectAll('*').remove();
 
   if (selectedHashtag === undefined){
-    
-    set_container_data_user(container, data, found,active_user);
+    set_container_data_user(container, data, found);
   }
-  else{
-    
-    
-    set_container_data_user(container, data["users"], found,active_user);
+  else {
+    set_container_data_user(container, data["users"], found);
   }
 }
 
 function set_container_data_user(container, data, found = false) {
-  console.log("set_container-data_users")
-  console.log("current user data",data)
   for (i in data) {
     total = data[i]['total'] || data[i]
     id = data[i]['id']
@@ -118,16 +115,11 @@ function set_container_data_user(container, data, found = false) {
       .on('click', function (d) {
         d3.selectAll(".box_user").attr('class', 'box_user');
         d3.select(this).attr("class", "box_user active");
-        console.log("selezione di un utente");
-        console.log("current user",d3.select(this).attr("id"))
-        active_user=d3.select(this).attr("id")
-        on_user_selected(d3.select(this).attr("id"),active_user);
-        //if (active_hashtag===undefined)
-        
+        on_user_selected(d3.select(this).attr("id"));      
       })
     ;
   
-    if(parseInt(id) === parseInt(selectedUser)) {
+    if(id === selectedUser) {
       found = true;
       box.attr('class', 'box_user active')
     }
@@ -154,13 +146,14 @@ function set_container_data_user(container, data, found = false) {
     box.append('p')
       .text('Total: ' + total);
   }
-  if(!found)  on_user_selected(undefined);
+  
 }
-function get_data_wordcloud_parsed(data)
-{
-  let word2fullsize = (Object.keys(data).map((i) => {
-    return { word:data[i]['id'], size: parseInt(data[i]['total']), color:parseFloat(data[i]['color'])};
-  }));
+
+
+function get_data_wordcloud_selection(data) {
+  let word2fullsize = data.map((i) => {
+    return { word: i.id, size: parseInt(i['total']), color:parseFloat(i['color'])};
+  });
 
   let scaleSize = d3.scaleLinear()
     .domain([0, d3.max(word2fullsize, (d) => d.size)])
@@ -170,9 +163,6 @@ function get_data_wordcloud_parsed(data)
 }
 
 function get_data_wordcloud(data) {
-
-  
-
   let word2fullsize = (Object.keys(data).map((i) => {
     return { word: i, size: parseInt(data[i]['total']), color:parseFloat(data[i]['color'])};
   }));
@@ -184,22 +174,17 @@ function get_data_wordcloud(data) {
   return word2fullsize.map(i => { return { word: i.word, num: i.size, fontsize: scaleSize(i.size), color:i.color } })
 }
 
-function filter_users_by_hashtag(selectedHashtag) {
-
-  active_hashtag=selectedHashtag
-  console.log("FILTER USER on SELECTED HASHTAG", selectedHashtag)
-  console.log("Selected USER on ")
+function filter_users_by_hashtag() {
   if (selectedHashtag !== undefined){
-    
+    isAllWordCloudDataset = false;
     selectedData_wordCloud=ORIGINAL_wordCloud[selectedHashtag];
     update_user_view(selectedData_wordCloud);
   }
-  else{
-    
-    console.log("filter_user_by_hashtag_UNDEFINED",user2hashtag)
-    selectedData_wordCloud=user2hashtag
+  else {
+    isAllWordCloudDataset = true;
+    selectedData_wordCloud=ORIGINAL_user2hashtag;
     update_user_view(selectedData_wordCloud)
-  }  
+  }
 }
 
 
@@ -231,69 +216,64 @@ function filter_sentiment() {
 }
 
 function on_hashtag_selected(value) {
- 
- 
-  active_hashtag=value;
-  console.log("hastag attivo",active_hashtag);
 
   if (value == selectedHashtag){
     selectedHashtag = undefined;
-    console.log("HAI DESELEZIONATO L'HASTAG")
     d3.select('.word-active').classed("word-active", false);
-    active_hashtag=undefined;
-    if (active_user===undefined)
+    if (selectedUser===undefined)
     {
-      console.log("aggiornamento")
-    update_user_view(ORIGINAL_user2hashtag)
+      update_user_view(ORIGINAL_user2hashtag);
+      if(!isAllWordCloudDataset) {      
+        original_wordcloud=get_data_wordcloud(ORIGINAL_wordCloud);
+        draw_wordcloud(original_wordcloud,wordcloud_width,wordcloud_height);
+      }
+    } else {
+      isAllWordCloudDataset = false;
+      data=ORIGINAL_user2hashtag[selectedUser];
+      parsedObjects = JSON.parse(data['hashtags']);   //parsing degli oggetti hashtag
+      word_cloud_filtered=get_data_wordcloud_selection(parsedObjects);
+      draw_wordcloud(word_cloud_filtered,wordcloud_width,wordcloud_height);
     }
   }
-  else  
+  else
+  {
+    selectedHashtag = value;
+    if (selectedUser===undefined)
     {
-      if (active_user===undefined)
-      {
       selectedHashtag = value;
-    filter_users_by_hashtag(active_hashtag);
-    
-      }
-      filter_sentiment();
+      filter_users_by_hashtag();
+    }
+    filter_sentiment();
   }
 }
 
-function on_user_selected(value, active_user) {
-
-  console.log("on_selected_user")
-  console.log("id selezionato",value)
-  console.log("active_user",active_user)
-  if (active_user!==undefined)
-  {
-    if (value == selectedUser){
-      
-      console.log("Full word cloud")
-      selectedUser = undefined;
-      d3.selectAll(".box_user").attr('class', 'box_user');
-      console.log("AFTER DESELCTION OF USER",original_wordcloud)
-      original_wordcloud=get_data_wordcloud(ORIGINAL_wordCloud)
-      draw_wordcloud(original_wordcloud,wordcloud_width,wordcloud_height)
+function on_user_selected(value) {
+  if (value == selectedUser){
+    selectedUser = undefined;
+    d3.selectAll(".box_user").attr('class', 'box_user');
+    if(selectedHashtag === undefined) {
+      isAllWordCloudDataset = true;
+      original_wordcloud=get_data_wordcloud(ORIGINAL_wordCloud);
+      draw_wordcloud(original_wordcloud,wordcloud_width,wordcloud_height);
+      filter_users_by_hashtag();
+    } else {
+      filter_users_by_hashtag();
     }
-    else
-    {  
-      console.log("Parsed word cloud")
-      selectedUser = value
-      data=ORIGINAL_user2hashtag[selectedUser]
-  
-    console.log("CLOUD WORD")
-    console.log(data)
-    parsedObjects = JSON.parse(data['hashtags']);   //parsing degli oggetti hashtag
-    console.log("parsed",parsedObjects)
-    //filter_hashtag_by_user(value);
-    word_cloud_filtered=get_data_wordcloud_parsed(parsedObjects)
-
-    console.log("WORD CLOUD FILTRATO")
-    console.log(word_cloud_filtered)
-    draw_wordcloud(word_cloud_filtered,wordcloud_width,wordcloud_height)
-    }
-    //filter_sentiment();
   }
+  else
+  {
+    selectedUser = value;
+    if(selectedHashtag === undefined) {
+      isAllWordCloudDataset = false;
+      data=ORIGINAL_user2hashtag[selectedUser];
+      parsedObjects = JSON.parse(data['hashtags']);   //parsing degli oggetti hashtag
+      word_cloud_filtered=get_data_wordcloud_selection(parsedObjects);
+      draw_wordcloud(word_cloud_filtered,wordcloud_width,wordcloud_height);
+    }
+  }
+  
+
+  filter_sentiment();
 }
 
 function check_hashtag_selected_in_user() {
@@ -327,10 +307,9 @@ Promise.all([
    wordcloud_height = d3.select('#wordcloud').node().getBoundingClientRect().height;
    sentiment_width = d3.select('#sentiment').node().getBoundingClientRect().width;
    sentiment_height = d3.select('#sentiment').node().getBoundingClientRect().height;
-  
-  
 
-  update_user_view(ORIGINAL_user2hashtag, true,active_user);
+
+  update_user_view(ORIGINAL_user2hashtag, true);
   original_wordcloud_SVG = get_data_wordcloud(ORIGINAL_wordCloud);
   
   draw_wordcloud(original_wordcloud_SVG, wordcloud_width, wordcloud_height);

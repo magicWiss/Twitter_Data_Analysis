@@ -94,8 +94,6 @@ function draw_wordcloud(data, width, height) {
       .enter()
       .append("text")
       .style("font-size", function (d) {
-        //console.log("FUNZIONE DRAW")
-        //console.log(d)
         return d.fontsize + "px";
       })
       .style("fill", function(d)
@@ -128,9 +126,18 @@ function draw_wordcloud(data, width, height) {
         d3.select(this).style("fill", current_color)
       })
       .text(function (d) {
-        
         return d.text;
       });
+
+      console.log(selectedHashtag)
+      if(selectedHashtag !== undefined) {
+        selected = d3.selectAll("text").filter(function () {
+          return d3.select(this).attr("id") == selectedHashtag; // filter by single attribute
+        });
+        if(selected.length > 0) {
+          console.log(selected[0]);
+        }
+      }
   }
 
   // Function to handle zooming and panning
