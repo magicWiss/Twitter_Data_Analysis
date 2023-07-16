@@ -227,7 +227,6 @@ function filter_sentiment() {
 }
 
 function on_hashtag_selected(value) {
-
   if (value == selectedHashtag){
     selectedHashtag = undefined;
     d3.select('.word-active').classed("word-active", false);
@@ -288,7 +287,47 @@ function on_user_selected(value) {
   filter_sentiment();
 }
 
+function filter_hashtags_by_button(choice) {
+  let hashtags;
+  console.log(ORIGINAL_wordCloud);
+  if(choice === 'pos')
+    hashtags = Object.keys(ORIGINAL_wordCloud).filter(key => ORIGINAL_wordCloud[key].color > 0);
+  else if(choice === 'neg')
+    hashtags = Object.keys(ORIGINAL_wordCloud).filter(key => ORIGINAL_wordCloud[key].color < 0);
+  else
+    hashtags = Object.keys(ORIGINAL_wordCloud);
+  
+  let hashtag_wordcloud = Object.keys(ORIGINAL_wordCloud).filter(key => hashtags.includes(key))
+    .reduce((obj, key) => {
+        obj[key] = ORIGINAL_wordCloud[key];
+        return obj;
+  }, {});
+  word_cloud_filtered=get_data_wordcloud(hashtag_wordcloud);
+  draw_wordcloud(word_cloud_filtered,wordcloud_width,wordcloud_height);
+  selectedUser = undefined;
+  selectedHashtag = undefined;
+  d3.select('.word-active').classed("word-active", false);
+  on_hashtag_selected(undefined);
+}
 
+function filter_users_by_button(choice) {
+  let users;
+  if(choice === 'pos')
+    users = Object.keys(ORIGINAL_user2hashtag).filter(key => parseInt(ORIGINAL_user2hashtag[key].total) > 1000);
+  else if(choice === 'neg')
+    users = Object.keys(ORIGINAL_user2hashtag).filter(key => parseInt(ORIGINAL_user2hashtag[key].total) < 1000);
+  else
+    users = Object.keys(ORIGINAL_user2hashtag);
+  let users_filtered = Object.keys(ORIGINAL_user2hashtag).filter(key => users.includes(key))
+    .reduce((obj, key) => {
+        obj[key] = ORIGINAL_user2hashtag[key];
+        return obj;
+  }, {});
+  update_user_view(users_filtered);
+  selectedUser = undefined;
+  selectedHashtag = undefined;
+  d3.select('.word-active').classed("word-active", false);
+}
 // ------------------------------------------------------------------
 // ---------------------------LETTURA FILE---------------------------
 // ------------------------------------------------------------------
@@ -392,5 +431,32 @@ document.addEventListener('DOMContentLoaded', function() {
     else{
       line_red_element.style("display", "block");
     }
+  });
+
+  const btn = document.querySelector('#hashtag_button');        
+  const radioButtons = document.querySelectorAll('input[name="hashtag"]');
+  btn.addEventListener("click", () => {
+      let choice;
+      for (const radioButton of radioButtons) {
+          if (radioButton.checked) {
+            choice = radioButton.value;
+              break;
+          }
+      }
+      filter_hashtags_by_button(choice);
+  });
+  
+  const users_btn = document.querySelector('#users_button');        
+  const users_radioButtons = document.querySelectorAll('input[name="users"]');
+  users_btn.addEventListener("click", () => {
+      let choice;
+      for (const radioButton of users_radioButtons) {
+          if (radioButton.checked) {
+            choice = radioButton.value;
+              break;
+          }
+      }
+      console.log(choice)
+      filter_users_by_button(choice);
   });
 });

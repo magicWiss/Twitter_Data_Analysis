@@ -15,32 +15,65 @@
   </style>
 </head>
 <body>
-    <div class="header">
-        Twitter Analytics
+    <div class="sidebar">
+        <div id="tipbox_menu">
+            <img src="images/logo.png" class="logo">
+            <div id="wordcloud_menu">
+                <h2>Word</h2>
+                <h2>Cloud</h2>
+                <p>La wordcloud mostra gli hashtag più utilizzati.</p>
+                <div id="wordcloud_filters">
+                    <h3>Mostra gli hashtag</h3>
+                    <input type="radio" name="hashtag" value="all">Tutti</input> 
+                    <input type="radio" name="hashtag" value="pos">Positivi</input> 
+                    <input type="radio" name="hashtag" value="neg">Negativi</input> 
+                    <button type="button" class="button" id="hashtag_button">Filtra</button> 
+                </div>
+            </div>
+            <hr/>
+            <div id="users_menu">
+                <h2>Users</h2>
+                <p>La sezione degli utenti mostra gli utenti più attivi rispetto all'intero dataset o, se selezionato, all'hashtag.</p>
+                <div id="users_filters">
+                    <h3>Mostra gli utenti</h3>
+                    <input type="radio" name="users" value="all">Tutti</input> 
+                    <input type="radio" name="users" value="pos">Con più di 1000 tweet</input> 
+                    <input type="radio" name="users" value="neg">Con meno di 1000 tweet</input> 
+                    <button type="button" class="button" id="users_button">Filtra</button> 
+                </div>
+            </div>
+            <hr/>
+            <div id="sentiment_menu_tipbox">
+                <h2>Sentiment</h2>
+                <p>La sezione degli utenti mostra gli utenti più attivi rispetto all'intero dataset o, se selezionato, all'hashtag.</p>
+                <div id="sentiment_menu">
+                    <div class="charts">
+                        <div class="line chart">
+                            <img src="images/chart-line-solid.svg" alt="chart">
+                        </div>
+                        <div class="horizon chart">
+                            <img src="images/chart-gantt-solid.svg" alt="chart">
+                        </div>
+                    </div>
+                    <div id="type_line">
+                        <input type="checkbox" id="positive" name="positive" checked>
+                        <label for="positive">Positive</label>
+                        <input type="checkbox" id="medium" name="medium" checked>
+                        <label for="medium">Medium</label>
+                        <input type="checkbox" id="negative" name="negative" checked>
+                        <label for="negative">Negative</label>
+                    </div>
+                </div>
+            </div>
+            <hr/>
+        </div>
+        
     </div>
     <div class="upper">
         <div id="wordcloud"></div>
         <div id="users"></div>
     </div>
     <div class="sentiment">
-        <div id="sentiment_menu">
-            <div class="charts">
-                <div class="line chart">
-                    <img src="images/chart-line-solid.svg" alt="chart">
-                </div>
-                <div class="horizon chart">
-                    <img src="images/chart-gantt-solid.svg" alt="chart">
-                </div>
-            </div>
-            <div id="type_line">
-                <input type="checkbox" id="positive" name="positive" checked>
-                <label for="positive">Positive</label>
-                <input type="checkbox" id="medium" name="medium" checked>
-                <label for="medium">Medium</label>
-                <input type="checkbox" id="negative" name="negative" checked>
-                <label for="negative">Negative</label>
-            </div>
-        </div>
         <div id="sentiment">
             <div id="chart1"></div>
             <div id="chart2"></div>

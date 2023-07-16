@@ -20,14 +20,17 @@ body {
     display: flex;
     flex-direction: column;
     font-family: Arial;
+    background-color: #1e3d58;
 }
   
 .upper {
     display: flex;
     flex-direction: row;
     width: inherit;
-    height: 50%;
+    height: 50vh;
     border-bottom: 3px #1e3d58 solid;
+    width: 94%;
+    margin-left: 6%;
 }
 #wordcloud {
     margin-left: 0;
@@ -72,20 +75,115 @@ body {
 .sentiment {
     display: flex;
     flex-direction: row;
-    width: 100%;
-    height: 42%;
+    width: 94%;
+    height: 49vh;
     /* border: 1px #1d9bf0 solid; */
+    margin-left: 6%;
 }
 
-#sentiment_menu{
+.logo {
+    width: 100%;
+}
+
+.sidebar{
+    position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 60px;
+    width: 6%;
+    height: 99vh;
+    color: white;
+    /* border: 1px #116A7B solid; */
+    background-color: #1e3d58;
+}
+
+.sidebar h2 {
+    font-size: 15px;
+}
+
+.sidebar:hover {
+    width: 10%;
+}
+
+.sidebar:hover h2{
+    font-size: 20px;
+}
+
+.sidebar #wordcloud_menu p {
+    display: none;
+}
+
+.sidebar #wordcloud_menu:hover p {
+    display: block;
+}
+
+.sidebar #wordcloud_filters {
+    display: none;
+}
+
+.sidebar #wordcloud_menu:hover #wordcloud_filters {
+    display: flex;
+    flex-direction: column;
+    margin: 3px;
+    padding: 3px;
+    border: 1px solid wheat;
+    border-radius: 3px;
+}
+
+
+.sidebar #users_filters {
+    display: none;
+}
+
+.sidebar #users_menu:hover #users_filters {
+    display: flex;
+    flex-direction: column;
+    margin: 3px;
+    padding: 3px;
+    border: 1px solid wheat;
+    border-radius: 3px;
+}
+
+.sidebar #users_menu p {
+    display: none;
+}
+
+.sidebar #users_menu:hover p {
+    display: block;
+}
+
+.sidebar #sentiment_menu_tipbox p {
+    display: none;
+}
+
+.sidebar #sentiment_menu_tipbox:hover p {
+    display: block;
+}
+
+.button {
+    background-color: #7593af;
+    color: white;
+    border: none;
+    border-radius: 3px;
+}
+
+#tipbox_menu {
+    text-align: center;
+}
+
+#sentiment_menu {
+    display: none;
+}
+
+.sidebar #sentiment_menu_tipbox:hover #sentiment_menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
     height: 100%;
     color: white;
     /* border: 1px #116A7B solid; */
-    background-color: #476f95;
+    background-color: #1e3d58;
 }
 
 a {
@@ -99,7 +197,7 @@ a {
     align-items: center;
     justify-content: center;
     height: 50px;
-    background: #476f95;
+    background: #1e3d58;
 }
 
 .chart :hover{
