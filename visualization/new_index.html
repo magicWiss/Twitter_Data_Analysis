@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="style/new_style.css">
+</head>
+<body>
+    <div id="container">
+        <div id="div1">
+            <div id="div1-1">
+                <div id="wordcloud" class="component"></div>
+                
+                    
+                    <div class="dropdown">
+                        <button class="dropbtn" id="word_cloud_btn">#</button>
+                        <div class="dropdown-content">
+                            <div class="dropdown-section">
+                                <div class="section-title" onclick="toggleAccordion(this)">Word cloud</div>
+                                <div class="section-body">
+                                    <p>Bla bla</p>
+                                </div>
+                            </div>
+                            <div class="dropdown-section">
+                                <div class="section-title" onclick="toggleAccordion(this)">Filtri</div>
+                                <div class="section-body">
+                                    
+                                    <label><input type="checkbox" checked> Show positive</label><br>
+                                    <label><input type="checkbox" checked> Show negative</label><br>
+                                    
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                
+        
+            </div>
+            <div id="div1-2">
+                <div id="user", class="component">
+                    
+                    <div class="dropdown">
+                        <button class="dropbtn">Users</button>
+                        <div class="dropdown-content">
+                            <div class="dropdown-section">
+                                <div class="section-title" onclick="toggleAccordion(this)">Users_Hastag count</div>
+                                <div class="section-body">
+                                    <p>Content of COS'E'</p>
+                                </div>
+                            </div>
+                            <div class="dropdown-section">
+                                <div class="section-title" onclick="toggleAccordion(this)">Filtri</div>
+                                <div class="section-body">
+                                    
+                                    <label><input type="checkbox"> Decreasing order</label><br>
+                                    
+                                    
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div id="users"></div>
+            </div>
+        </div>
+        <div id="div2">
+            <div id="sentiment", class="component">
+                <div id="sentiment">
+                    <div id="chart1"></div>
+                    <div id="chart2"></div>
+                    <div id="chart3"></div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">Sentiment</button>
+                    <div class="dropdown-content">
+                        <div class="dropdown-section">
+                            <div class="section-title" onclick="toggleAccordion(this)">Sentiment</div>
+                            <div class="section-body">
+                                <p>Content of COS'E'</p>
+                            </div>
+                        </div>
+                        <div class="dropdown-section">
+                            <div class="section-title" onclick="toggleAccordion(this)">Filtri</div>
+                            <div class="section-body">
+                                <input type="radio" id="html" name="fav_language" value="HTML" checked>
+                                <label for="html">Line-plot</label><br>
+                                <input type="radio" id="css" name="fav_language" value="CSS">
+                                <label for="css">Horizon-graph</label><br>
+                                
+                            </div>
+                        </div>
+                        <div class="dropdown-section">
+                            <div class="section-title" onclick="toggleAccordion(this)">Filter</div>
+                            <div class="section-body">
+                                <label><input type="checkbox"> Positive</label><br>
+                                <label><input type="checkbox"> Medium</label><br>
+                                <label><input type="checkbox"> Negative</label><br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function toggleAccordion(sectionTitle) {
+            const sectionBody = sectionTitle.nextElementSibling;
+            sectionBody.classList.toggle("active");
+        }
+    </script>
+</body>
+</html>

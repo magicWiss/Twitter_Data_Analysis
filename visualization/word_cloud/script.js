@@ -37,7 +37,7 @@ function draw_wordcloud(data, width, height) {
   var screenHeight = height || window.innerHeight;
 
   // set the dimensions and margins of the graph
-  var margin = { top: 10, right: 10, bottom: 10, left: 10 },
+  var margin = { top: 0, right: 0, bottom: 0, left: 0 },
     width = screenWidth - margin.left - margin.right,
     height = screenHeight - margin.top - margin.bottom;
 

@@ -1,0 +1,235 @@
+.header {
+    text-align: center;
+    height: 30px;
+    background-color: #1d9bf0;
+    border: 1px #1d9bf0 solid;
+    font-size: 20px;
+    color: white;
+}
+
+html, body {
+    margin: 0;
+    height: 100%;
+    background-color: rgb(239, 249, 240);
+}
+#div1-1 {
+    width: 60%;
+
+    display: flex;
+    justify-content:center;
+    height: 100%;
+    
+}
+#container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between ;
+   
+    height: 100%;
+    width: 100%;
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+#div1 {
+    width: 100%;
+
+    display: flex;
+    
+    height: 40%;
+    align-items: center;
+    
+}
+
+#div1-1 {
+    width: 100%;
+
+
+    display: flex;
+    justify-content:center;
+    height: 100%;
+    
+}
+.component
+{
+    margin-top: 10px;
+    border-radius: 10px;
+
+    height: 90%;
+    width: 90%;
+    
+}
+#wordcloud {
+    position: inherit;
+    width:100%;
+    height: 100%;
+    
+    
+    
+    
+    overflow:hidden;
+}
+#users
+{
+    width: 100%;
+    height: 100%;
+    
+    overflow: auto;
+}
+#div1-2{
+    width: 60%;
+    
+    display: flex;
+   
+    justify-content:center;
+    height: 100%;
+}
+.box_user{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 10px 20px;
+    border: 1px #242d34 solid;
+    -webkit-box-shadow: 6px 7px 15px -4px #000000; 
+    box-shadow: 6px 7px 15px -4px #000000;
+}
+#div2
+{
+    width: 100%;
+
+    height: 55%;
+    display: flex;
+    justify-content:center;
+    flex-direction: row;
+}
+#sentiment {
+    
+    
+    width: 100%;
+    height: 100%;
+    /* border: 1px #1d9bf0 solid; */
+}
+
+
+#sentiment_menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 10%;
+    height: 100%;
+   
+    background-color: #1d9bf0;
+}
+
+.chart{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    background: rgb(29,189,240);
+    background: linear-gradient(0deg, rgba(29,189,240,1) 0%, rgba(29,155,240,1) 100%);
+}
+
+.chart :hover{
+    background: #84e1ff;
+    -webkit-transition: background 0.5s; /* For Safari */
+    transition: background 0.5s; /* For modern browsers */
+}
+
+.chart img{
+    height: 40px;
+}
+
+
+#sentiment{
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px #1d9bf0 solid;
+}
+.word-active {
+    fill: #b3697a;
+    text-decoration: underline;
+}
+.dropdown {
+    position: absolute;
+    
+}
+
+.dropbtn {
+
+    background-color: rgb(101, 170, 248);
+    color: white;
+    width: auto;
+    padding: 8px;
+    font-size: 20px;
+    
+    cursor: pointer;
+    border-radius: 10px;
+    
+ 
+    
+}
+
+
+.dropdown-content {
+    
+    display: none;
+    margin-top: -50px;
+    top: 60px;
+    position: relative;
+    background-color: #f9f9f9;
+    width: 200%;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+   
+    
+}
+
+.dropdown-section {
+    display: flex;
+    flex-direction: column;
+    
+    
+}
+
+.section-title {
+    background-color: #ddd;
+    padding: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.section-body {
+    padding: 5px;
+    display: none;
+    width: 100%;
+    border: solid;
+}
+
+
+.section-body.active {
+    display: block;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: rgb(101, 126, 248);
+}

@@ -10,6 +10,7 @@
   <script src="word_cloud/script.js"></script>
   <script src="sentiment/line_chart.js"></script>
   <script src="sentiment/horizon_chart.js"></script>
+  <script src="script/sidebar.js"></script>
   <link rel="stylesheet" type="text/css" href="style/style.css">
   <style>
   </style>
@@ -18,10 +19,21 @@
     <div class="header">
         Twitter Analytics
     </div>
-    <div class="upper">
-        <div id="wordcloud"></div>
-        <div id="users"></div>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <span class="icon" onclick="toggleSidebar()">&#9776;</span>
+        </div>
+        <div class="sidebar-content">
+            <div class="section">Section 1</div>
+            <div class="section">Section 2</div>
+            <div class="section">Section 3</div>
+        </div>
     </div>
+    <div class="main-component">
+        <div class="upper">
+            <div id="wordcloud"></div>
+            <div id="users"></div>
+        </div>
     <div class="sentiment">
         <div id="sentiment_menu">
             <div class="charts">
@@ -47,5 +59,7 @@
             <div id="chart3"></div>
         </div>
     </div>
+    </div>
+
 </body>
 </html>
