@@ -13,7 +13,7 @@ var Tooltip = d3.select("body")
 //scaler per il colore
 var linearScale = d3.scaleLinear()
   .domain([-0.9, 0, 0.9])
-  .range(['#FF4528', '#fdc49e', '#7bb274']);
+  .range(['#FF4528', '#E7C930', '#5CCF4D']);
 
 function draw_wordcloud(data, width, height) {
   // List of words

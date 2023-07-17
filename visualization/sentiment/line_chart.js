@@ -77,7 +77,8 @@ function draw_sentiment_line_chart(data, width, height) {
     .attr("class", "line green")
     .attr("d", line1)
     .style("fill", "none")
-    .style("stroke", "green");
+    .style("stroke", "#5CCF4D")
+    .style("stroke-width", 3);
 
   line2Path = chart
     .append("path")
@@ -85,7 +86,8 @@ function draw_sentiment_line_chart(data, width, height) {
     .attr("class", "line red")
     .attr("d", line2)
     .style("fill", "none")
-    .style("stroke", "red");
+    .style("stroke", "#FF4528")
+    .style("stroke-width", 3);
 
   line3Path = chart
     .append("path")
@@ -93,7 +95,8 @@ function draw_sentiment_line_chart(data, width, height) {
     .attr("class", "line orange")
     .attr("d", line3)
     .style("fill", "none")
-    .style("stroke", "orange");
+    .style("stroke", "#E7C930")
+    .style("stroke-width", 3);
 
   // Add the x-axis
   xAxis = chart
@@ -107,9 +110,9 @@ function draw_sentiment_line_chart(data, width, height) {
 
   // Add the legend
   const legendData = [
-    { label: "Positive", color: "green" },
-    { label: "Medium", color: "orange" },
-    { label: "Negative", color: "red" },
+    { label: "Positive", color: "#5CCF4D" },
+    { label: "Medium", color: "#E7C930" },
+    { label: "Negative", color: "#FF4528" },
   ];
 
   const legendWidth = 150;
