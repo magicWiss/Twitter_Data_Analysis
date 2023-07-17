@@ -197,7 +197,7 @@ function filter_sentiment() {
   if (selectedHashtag !== undefined){
     if(selectedUser === undefined)
       updateChart(hash2date.filter(function(d) { return d.Hastag === selectedHashtag}));
-    else
+    else {
       userSentiment = user2date.filter(function(d) { return d.author_id === selectedUser});
       hashSentiment = hash2date.filter(function(d) { return d.Hastag === selectedHashtag});
       let datesToFilter = Array();
@@ -217,6 +217,7 @@ function filter_sentiment() {
       });
       // mancano i dati
       updateChart(result);
+    }
   }
   else if(selectedUser !== undefined) {
     updateChart(user2date.filter(function(d) { return d.author_id === selectedUser}));
