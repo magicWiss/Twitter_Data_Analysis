@@ -160,7 +160,7 @@ function get_data_wordcloud(data) {
   let word2fullsize = (Object.keys(data).map((i) => {
     return { word: i, size: parseInt(data[i]['total']), color:parseFloat(data[i]['color'])};
   }));
-
+  word2fullsize = word2fullsize.filter(i => Object.keys(ORIGINAL_wordCloud).includes(i.word))
   let scaleSize = d3.scaleLinear()
     .domain([0, d3.max(word2fullsize, (d) => d.size)])
     .range([20, 60]);
@@ -170,9 +170,13 @@ function get_data_wordcloud(data) {
 
 function filter_users_by_hashtag() {
   if (selectedHashtag !== undefined){
-    isAllWordCloudDataset = false;
-    selectedData_wordCloud=ORIGINAL_wordCloud[selectedHashtag];
-    update_user_view(selectedData_wordCloud);
+    if(Object.keys(ORIGINAL_wordCloud).includes(selectedHashtag)) {
+      isAllWordCloudDataset = false;
+      selectedData_wordCloud=ORIGINAL_wordCloud[selectedHashtag];
+      update_user_view(selectedData_wordCloud);
+    } else {
+      on_hashtag_selected(selectedHashtag);
+    }
   }
   else {
     isAllWordCloudDataset = true;
@@ -181,17 +185,6 @@ function filter_users_by_hashtag() {
   }
 }
 
-
-function filter_hashtag_by_user() {
-  if (selectedUser !== undefined){
-    selectedData_wordCloud = wordCloud[selectedHashtag];
-    // update_wordcloud(selectedData_wordCloud);
-  }
-  else{
-    selectedData_wordCloud=user2hashtag
-    // update_wordcloud(selectedData_wordCloud)
-  }  
-}
 
 function filter_sentiment() {
   if (selectedHashtag !== undefined){
@@ -290,7 +283,6 @@ function on_user_selected(value) {
 
 function filter_hashtags_by_button(choice) {
   let hashtags;
-  console.log(ORIGINAL_wordCloud);
   if(choice === 'pos')
     hashtags = Object.keys(ORIGINAL_wordCloud).filter(key => ORIGINAL_wordCloud[key].color > 0);
   else if(choice === 'neg')
@@ -457,7 +449,6 @@ document.addEventListener('DOMContentLoaded', function() {
               break;
           }
       }
-      console.log(choice)
       filter_users_by_button(choice);
   });
 });
