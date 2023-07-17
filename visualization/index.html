@@ -17,51 +17,71 @@
 <body>
     <div class="sidebar">
         <div id="tipbox_menu">
-            <img src="images/logo.png" class="logo">
+            <img src="images/logo1.png" class="logo">
             <div id="wordcloud_menu">
-                <h2>Word</h2>
-                <h2>Cloud</h2>
-                <p>La wordcloud mostra gli hashtag più utilizzati.</p>
+                <h2>Word Cloud</h2>
+                <p>La wordcloud mostra gli hashtag più utilizzati</p>
+                <div class="colormap">
+                    <p>Neg</p>
+                    <p>Pos</p>
+                </div>
                 <div id="wordcloud_filters">
                     <h3>Mostra gli hashtag</h3>
-                    <input type="radio" name="hashtag" value="all">Tutti</input> 
-                    <input type="radio" name="hashtag" value="pos">Positivi</input> 
-                    <input type="radio" name="hashtag" value="neg">Negativi</input> 
+                    <div class="choice">
+                        <input type="radio" name="hashtag" id="all1" value="all"></input> 
+                        <label for="all1">Tutti</label>
+                    </div>
+                    <div class="choice">
+                        <input type="radio" name="hashtag" id="pos1" value="pos"></input> 
+                        <label for="pos1">Positivi</label>
+                    </div>
+                    <div class="choice">
+                        <input type="radio" name="hashtag" id="neg1" value="neg"></input> 
+                        <label for="neg1">Negativi</label>
+                    </div>
                     <button type="button" class="button" id="hashtag_button">Filtra</button> 
                 </div>
             </div>
             <hr/>
             <div id="users_menu">
                 <h2>Users</h2>
-                <p>La sezione degli utenti mostra gli utenti più attivi rispetto all'intero dataset o, se selezionato, all'hashtag.</p>
+                <p>La sezione degli utenti mostra gli utenti più attivi rispetto all'intero dataset o, se selezionato, all'hashtag</p>
                 <div id="users_filters">
                     <h3>Mostra gli utenti</h3>
-                    <input type="radio" name="users" value="all">Tutti</input> 
-                    <input type="radio" name="users" value="pos">Con più di 1000 tweet</input> 
-                    <input type="radio" name="users" value="neg">Con meno di 1000 tweet</input> 
+                    <div class="choice">
+                        <input type="radio" name="users" id="all2" value="all"></input> 
+                        <label for="all2">Tutti</label>
+                    </div>
+                    <div class="choice">
+                        <input type="radio" name="users" id="pos2" value="pos"></input> 
+                        <label for="pos2">Con più di 1000 tweet</label>
+                    </div>
+                    <div class="choice">
+                        <input type="radio" name="users" id="neg2" value="neg"></input> 
+                        <label for="neg2">Con meno di 1000 tweet</label>
+                    </div>
                     <button type="button" class="button" id="users_button">Filtra</button> 
                 </div>
             </div>
             <hr/>
             <div id="sentiment_menu_tipbox">
                 <h2>Sentiment</h2>
-                <p>La sezione degli utenti mostra gli utenti più attivi rispetto all'intero dataset o, se selezionato, all'hashtag.</p>
+                <p>La sezione del sentiment mostra l'andamento del sentiment rispetto al dataset, eventualmente flitrato</p>
                 <div id="sentiment_menu">
-                    <div class="charts">
-                        <div class="line chart">
-                            <img src="images/chart-line-solid.svg" alt="chart">
-                        </div>
-                        <div class="horizon chart">
-                            <img src="images/chart-gantt-solid.svg" alt="chart">
-                        </div>
-                    </div>
                     <div id="type_line">
-                        <input type="checkbox" id="positive" name="positive" checked>
-                        <label for="positive">Positive</label>
-                        <input type="checkbox" id="medium" name="medium" checked>
-                        <label for="medium">Medium</label>
-                        <input type="checkbox" id="negative" name="negative" checked>
-                        <label for="negative">Negative</label>
+                        <h3>Mostra le linee</h3>
+                        <div class="choice">
+                            <input type="checkbox" id="positive" name="positive" checked>
+                            <label for="positive">Positive</label>
+                        </div>
+                        <div class="choice">
+                            <input type="checkbox" id="medium" name="medium" checked>
+                            <label for="medium">Medium</label>
+                        </div>
+                        <div class="choice">
+                            <input type="checkbox" id="negative" name="negative" checked>
+                            <label for="negative">Negative</label>
+                        </div>
                     </div>
                 </div>
             </div>
